@@ -213,7 +213,8 @@ nav {
   gap: 0.75rem; position: relative; overflow: hidden;
   box-shadow: 0 24px 50px -28px rgba(46,44,41,0.35);
 }
-.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+.about-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.about-photo .photo-ph-icon, .about-photo .photo-ph-text { position: relative; z-index: 2; }
 .value-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.75rem; }
 .value-tag {
   font-size: 0.78rem; padding: 0.4rem 0.95rem; border-radius: 99px; font-weight: 400;
@@ -369,7 +370,7 @@ footer {
     </div>
     <div class="hero-right">
       <div class="hero-photo">
-        <img src="images/izabela.jpg" alt="Izabela Konieczna">
+        <img src="https://raw.githubusercontent.com/Becutiefied/Izabela-website/main/images/izabela.jpg" alt="Izabela Konieczna">
         <div class="photo-ph-icon">❋</div>
         <div class="photo-ph-text" data-i18n="photo_1"></div>
       </div>
@@ -397,9 +398,9 @@ footer {
       </div>
     </div>
     <div class="about-photo">
-      <img src="images/backdoor.jpg" alt="Izabela backdoor">
+      <img src="https://raw.githubusercontent.com/Becutiefied/Izabela-website/main/images/backdoor.jpg" alt="Izabela backdoor">
       <div class="photo-ph-icon">❋</div>
-      <div class="photo-ph-text" data-i18n="photo_2">Zdjęcie 2 · Gabinet</div>
+      <div class="photo-ph-text" data-i18n="photo_2"></div>
     </div>
   </div>
 </section>
@@ -543,7 +544,7 @@ const i18n = {
     hero_role:"Coaching transformacyjny & rozwój osobisty",
     hero_desc:"Pomagam ludziom odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny rozdział swojego życia — krok po kroku, w bezpiecznej przestrzeni.",
     hero_cta1:"Zobacz pakiety", hero_cta2:"Umów rozmowę",
-    photo_1:"", photo_2:"Zdjęcie 2 · Gabinet",
+    photo_1:"", photo_2:"",
     about_label:"O mnie", about_title:"Z empatią i <em>jasnością</em>",
     about_p1:"Jestem certyfikowanym coachem ICF ACC, specjalizującym się w coachingu transformacyjnym. Moją wiedzę o człowieku, świadomości i procesach rozwojowych stale pogłębiam, kontynuując edukację na kierunku psychologia. Ukończyłam również politologię, administrację oraz zarządzanie nieruchomościami.",
     about_p2:"Przeszłam wiele własnych transformacji życiowych i zawodowych, dlatego doskonale rozumiem, jak wymagające, ale jednocześnie wartościowe mogą być momenty zmian. To właśnie połączenie wiedzy, doświadczenia oraz autentycznego zrozumienia wspiera moją pracę z klientami.",
@@ -575,7 +576,7 @@ const i18n = {
     hero_role:"Transformational coaching & personal growth",
     hero_desc:"I help people find balance, regain confidence, and consciously design the next chapter of their lives — step by step, in a safe and supportive space.",
     hero_cta1:"View packages", hero_cta2:"Book a call",
-    photo_1:"", photo_2:"Photo 2 · Office",
+    photo_1:"", photo_2:"",
     about_label:"About me", about_title:"With empathy and <em>clarity</em>",
     about_p1:"I'm a certified ICF ACC coach specialising in transformational coaching. I continually deepen my knowledge of people, awareness and developmental processes, while continuing my education in psychology. I have also completed studies in political science, administration, and real estate management.",
     about_p2:"I've been through many of my own personal and professional transformations, so I understand deeply how demanding — yet how valuable — moments of change can be. It's exactly this combination of knowledge, experience and genuine understanding that supports my work with clients.",
