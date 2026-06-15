@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Izabela Konieczna — Coach ICF ACC & Coaching Transformacyjny</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white:      #FBF9F5;
+  --beige:      #EFE7D9;
+  --beige-deep: #E3D7C3;
+  --grey:       #2E2C29;
+  --grey-soft:  #3A3733;
+  --text:       #2A2723;
+  --text-light: #FBF9F5;
+  --muted:      #8A8278;
+  --muted-light:#C9C2B6;
+  --gold:       #B08D45;
+  --gold-light: #D4B36A;
+  --silver:     #A7ABB0;
+  --silver-dk:  #6E7176;
+  --black:      #1A1815;
+  --border:     rgba(42,39,35,0.10);
+  --border-deep:rgba(176,141,69,0.30);
+  --radius:     14px;
+  --serif:  'Cormorant Garamond', Georgia, serif;
+  --sans:   'Jost', sans-serif;
+  --mono:   'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── subtle grain ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none; opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 4rem;
+  background: rgba(251,249,245,0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.nav-logo {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 500;
+  letter-spacing: 0.02em; color: var(--grey);
+}
+.nav-logo span { color: var(--gold); font-style: italic; }
+.nav-right { display: flex; align-items: center; gap: 2.5rem; }
+.nav-links { display: flex; gap: 2.25rem; list-style: none; }
+.nav-links a {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted);
+  text-decoration: none; transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px;
+  background: var(--gold); transition: width 0.25s;
+}
+.nav-links a:hover { color: var(--grey); }
+.nav-links a:hover::after { width: 100%; }
+
+.lang-toggle {
+  display: flex; align-items: center;
+  border: 1px solid var(--border-deep); border-radius: 99px;
+  overflow: hidden; font-family: var(--mono);
+}
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  padding: 0.35rem 0.8rem; font-size: 0.68rem; letter-spacing: 0.1em;
+  color: var(--muted); font-family: var(--mono); transition: all 0.2s;
+}
+.lang-btn.active { background: var(--gold); color: var(--white); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 8rem 4rem 5rem;
+  background:
+    radial-gradient(ellipse 80% 70% at 75% 30%, rgba(239,231,217,0.9), transparent 60%),
+    var(--white);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem; align-items: center;
+  max-width: 1180px; margin: 0 auto; width: 100%;
+}
+.hero-left { animation: fadeUp 0.9s ease both; }
+.hero-right { animation: fadeUp 0.9s 0.2s ease both; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--mono); font-size: 0.68rem; color: var(--gold);
+  letter-spacing: 0.12em; border: 1px solid var(--border-deep);
+  background: rgba(176,141,69,0.06);
+  padding: 0.35rem 0.95rem; border-radius: 99px; margin-bottom: 1.75rem;
+}
+.hero-badge::before { content: '✦'; font-size: 0.6rem; }
+
+.hero-name {
+  font-family: var(--serif); font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 300; line-height: 1.02; letter-spacing: -0.01em;
+  margin-bottom: 0.75rem; color: var(--grey);
+}
+.hero-name em { font-style: italic; color: var(--gold); display: block; }
+.hero-role {
+  font-family: var(--mono); font-size: 0.82rem; color: var(--silver-dk);
+  letter-spacing: 0.1em; margin-bottom: 1.75rem; text-transform: uppercase;
+}
+.hero-desc {
+  font-size: 1.05rem; color: var(--muted); max-width: 440px;
+  line-height: 1.9; margin-bottom: 2.5rem;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  padding: 0.85rem 2.1rem; background: var(--gold); color: var(--white);
+  border-radius: 99px; text-decoration: none; font-size: 0.8rem;
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: all 0.25s; border: 1px solid var(--gold);
+}
+.btn-primary:hover { background: var(--grey); border-color: var(--grey); transform: translateY(-1px); }
+.btn-outline {
+  padding: 0.85rem 2.1rem; color: var(--grey); border: 1px solid var(--silver);
+  border-radius: 99px; text-decoration: none; font-size: 0.8rem;
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.25s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* hero photo */
+.hero-photo {
+  aspect-ratio: 4 / 5; border-radius: 200px 200px 18px 18px;
+  background:
+    linear-gradient(160deg, var(--beige) 0%, var(--beige-deep) 100%);
+  border: 1px solid var(--border-deep);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.75rem; position: relative; overflow: hidden;
+  box-shadow: 0 30px 60px -30px rgba(176,141,69,0.4);
+}
+.hero-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(212,179,106,0.18), transparent 60%);
+}
+.photo-ph-icon {
+  font-size: 2.5rem;
+  color: var(--gold);
+  opacity: 0.55;
+  transform: translateY(-8px);
+  transition: transform 0.18s ease;
+}
+.photo-ph-text {
+  font-family: var(--mono); font-size: 0.62rem; color: var(--silver-dk);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.hero-photo img {
+  width: 100%;
+  height: auto;
+  max-height: 86%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(46,44,41,0.15);
+  margin-top: auto;
+}
+
+/* ── SECTIONS ── */
+.section-label {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--gold);
+  letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.85rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-label::before { content: '—'; color: var(--silver); }
+.section-title {
+  font-family: var(--serif); font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+  font-weight: 300; line-height: 1.12; margin-bottom: 1.25rem; color: var(--grey);
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+.z-section {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  padding: 7rem 4rem; max-width: 1180px; margin: 0 auto;
+}
+.z-section.reverse { direction: rtl; }
+.z-section.reverse > * { direction: ltr; }
+
+/* ── ABOUT ── */
+#about { background: var(--beige); }
+#about p { color: var(--silver-dk); margin-bottom: 1.1rem; line-height: 1.95; }
+.about-photo {
+  aspect-ratio: 3 / 4; border-radius: 18px;
+  background: linear-gradient(160deg, var(--white), var(--beige-deep));
+  border: 1px solid var(--border-deep);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.75rem; position: relative; overflow: hidden;
+  box-shadow: 0 24px 50px -28px rgba(46,44,41,0.35);
+}
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+.value-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.75rem; }
+.value-tag {
+  font-size: 0.78rem; padding: 0.4rem 0.95rem; border-radius: 99px; font-weight: 400;
+  background: rgba(251,249,245,0.6); border: 1px solid var(--border-deep); color: var(--silver-dk);
+}
+.value-tag.gold { background: rgba(176,141,69,0.1); border-color: var(--border-deep); color: var(--gold); }
+
+/* ── TRANSFORMATION ── */
+#transform { background: var(--grey); color: var(--text-light); }
+#transform .section-title { color: var(--white); }
+#transform .section-label { color: var(--gold-light); }
+#transform .section-label::before { color: var(--silver); }
+.transform-intro { color: var(--muted-light); max-width: 620px; line-height: 1.95; margin-bottom: 3.5rem; font-size: 1.05rem; }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.step-card {
+  background: var(--grey-soft); border: 1px solid rgba(167,171,176,0.12);
+  border-radius: var(--radius); padding: 1.75rem 1.5rem; position: relative;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.step-card:hover { transform: translateY(-4px); border-color: var(--border-deep); }
+.step-num {
+  font-family: var(--serif); font-size: 2.4rem; font-style: italic;
+  color: var(--gold); line-height: 1; margin-bottom: 0.85rem; display: block;
+}
+.step-title { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+.step-title { color: var(--gold); line-height: 1; margin-bottom: 0.85rem; display: block; }
+.step-desc { font-size: 0.82rem; color: var(--muted-light); line-height: 1.7; }
+
+/* ── PACKAGES ── */
+#packages { background: var(--white); padding: 7rem 4rem; }
+#packages .inner { max-width: 1180px; margin: 0 auto; }
+.pkg-head { text-align: center; margin-bottom: 3.5rem; }
+.pkg-head .section-label { justify-content: center; }
+.packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; }
+.pkg-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 2.5rem 2rem; position: relative;
+  display: flex; flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.pkg-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -35px rgba(46,44,41,0.3); border-color: var(--border-deep); }
+.pkg-card.featured {
+  background: linear-gradient(165deg, var(--beige) 0%, var(--white) 100%);
+  border-color: var(--gold);
+}
+.pkg-flag {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--gold); color: var(--white); padding: 0.3rem 1rem; border-radius: 99px;
+}
+.pkg-name { font-family: var(--serif); font-size: 1.7rem; font-weight: 500; color: var(--grey); margin-bottom: 0.25rem; line-height: 1.15; }
+.pkg-subtitle { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold); margin-bottom: 1rem; line-height: 1.3; }
+.pkg-tagline { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; min-height: 2.4em; }
+.pkg-price-lines { margin-bottom: 1.25rem; }
+.pkg-price-lines .line { font-family: var(--serif); font-size: 1.4rem; color: var(--gold); line-height: 1.4; }
+.pkg-sublabel { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.6rem; }
+.pkg-meta { font-family: var(--mono); font-size: 0.68rem; color: var(--silver-dk); letter-spacing: 0.06em; margin-bottom: 1.75rem; }
+.pkg-features { list-style: none; flex-grow: 1; margin-bottom: 2rem; }
+.pkg-features li {
+  font-size: 0.85rem; color: var(--silver-dk); padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.6rem;
+}
+.pkg-features li::before { content: '✦'; color: var(--gold); font-size: 0.7rem; margin-top: 0.25rem; }
+.pkg-features strong { font-weight: 600; color: var(--grey); }
+.pkg-btn {
+  text-align: center; padding: 0.8rem 1.5rem; border-radius: 99px;
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.25s;
+  border: 1px solid var(--gold); color: var(--gold);
+}
+.pkg-btn:hover { background: var(--gold); color: var(--white); }
+.pkg-card.featured .pkg-btn { background: var(--gold); color: var(--white); }
+.pkg-card.featured .pkg-btn:hover { background: var(--grey); border-color: var(--grey); }
+
+/* ── CONTACT ── */
+#contact { background: var(--beige); padding: 7rem 4rem; }
+.contact-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.contact-inner .section-label { justify-content: center; }
+.contact-desc { color: var(--silver-dk); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.9; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+.contact-link {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.85rem 1.5rem; background: var(--white); border: 1px solid var(--border);
+  border-radius: 99px; text-decoration: none; color: var(--silver-dk);
+  font-size: 0.85rem; font-weight: 400; transition: all 0.25s;
+}
+.contact-link:hover { border-color: var(--gold); color: var(--grey); transform: translateY(-2px); }
+.contact-link span { color: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--grey); color: var(--muted-light);
+  padding: 2.5rem 4rem; display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.footer-name { font-family: var(--serif); font-size: 1.25rem; color: var(--white); }
+.footer-name span { color: var(--gold); font-style: italic; }
+.footer-mono { font-family: var(--mono); font-size: 0.65rem; color: var(--silver); letter-spacing: 0.1em; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: var(--beige); }
+::-webkit-scrollbar-thumb { background: var(--border-deep); border-radius: 4px; }
+
+@media (max-width: 900px) {
+  nav { padding: 0.9rem 1.5rem; }
+  .nav-links { display: none; }
+  #hero, .z-section, #packages, #contact, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .hero-content, .z-section, .contact-grid { grid-template-columns: 1fr; }
+  .z-section.reverse { direction: ltr; }
+  .hero-right { order: -1; }
+  .hero-photo { max-width: 320px; margin: 0 auto; }
+  .hero-photo img { width: 80%; height: auto; max-height: 84%; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .packages-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Izabela <span>Konieczna</span></div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav_about">O mnie</a></li>
+      <li><a href="#transform" data-i18n="nav_transform">Transformacja</a></li>
+      <li><a href="#packages" data-i18n="nav_packages">Pakiety</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="pl">PL</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="hero">
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge" data-i18n="hero_badge">Certyfikowany coach ICF ACC</div>
+      <h1 class="hero-name">
+        <span data-i18n="hero_name1">Izabela</span>
+        <em data-i18n="hero_name2">Konieczna</em>
+      </h1>
+      <p class="hero-role" data-i18n="hero_role">Coaching transformacyjny &amp; rozwój osobisty</p>
+      <p class="hero-desc" data-i18n="hero_desc">Pomagam ludziom odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny rozdział swojego życia — krok po kroku, w bezpiecznej przestrzeni.</p>
+      <div class="hero-actions">
+        <a href="#packages" class="btn-primary" data-i18n="hero_cta1">Zobacz pakiety</a>
+        <a href="#contact" class="btn-outline" data-i18n="hero_cta2">Umów rozmowę</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <img src="images/izabela.jpg" alt="Izabela Konieczna">
+        <div class="photo-ph-icon">❋</div>
+        <div class="photo-ph-text" data-i18n="photo_1"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="z-section">
+    <div class="about-text">
+      <div class="section-label" data-i18n="about_label">O mnie</div>
+      <h2 class="section-title" data-i18n="about_title">Z empatią i <em>jasnością</em></h2>
+      <p data-i18n="about_p1">Jestem certyfikowanym coachem ICF ACC, specjalizującym się w coachingu transformacyjnym. Moją wiedzę o człowieku, świadomości i procesach rozwojowych stale pogłębiam, kontynuując edukację na kierunku psychologia. Ukończyłam również politologię, administrację oraz zarządzanie nieruchomościami.</p>
+      <p data-i18n="about_p2">Przeszłam wiele własnych transformacji życiowych i zawodowych, dlatego doskonale rozumiem, jak wymagające, ale jednocześnie wartościowe mogą być momenty zmian. To właśnie połączenie wiedzy, doświadczenia oraz autentycznego zrozumienia wspiera moją pracę z klientami.</p>
+      <p data-i18n="about_p3">Od lat towarzyszę ludziom w momentach przełomu — gdy dotychczasowa droga przestaje dawać satysfakcję, a nowa dopiero zaczyna się wyłaniać.</p>
+      <p data-i18n="about_p4">Łączę rzetelną wiedzę z praktycznymi narzędziami coachingu. Wierzę, że każdy człowiek posiada w sobie odpowiedzi i zasoby potrzebne do rozwoju — moją rolą jest pomóc je odkryć, uporządkować i świadomie wykorzystać.</p>
+      <p data-i18n="about_p5">Pracuję online oraz stacjonarnie, w atmosferze szacunku, zaufania, bezpieczeństwa i pełnej dyskrecji.</p>
+      <div class="value-tags">
+        <span class="value-tag gold" data-i18n="tag_1">✦ Empatia</span>
+        <span class="value-tag" data-i18n="tag_2">Dyskrecja</span>
+        <span class="value-tag" data-i18n="tag_3">Rozwój osobisty</span>
+        <span class="value-tag" data-i18n="tag_4">ICF ACC</span>
+        <span class="value-tag" data-i18n="tag_5">Online &amp; stacjonarnie</span>
+      </div>
+    </div>
+    <div class="about-photo">
+      <img src="images/backdoor.jpg" alt="Izabela backdoor">
+      <div class="photo-ph-icon">❋</div>
+      <div class="photo-ph-text" data-i18n="photo_2">Zdjęcie 2 · Gabinet</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section id="transform">
+  <div style="max-width:1180px;margin:0 auto;padding:7rem 4rem;">
+    <div class="section-label" data-i18n="tr_label">Proces transformacji</div>
+    <h2 class="section-title" data-i18n="tr_title">Twoja droga do <em>zmiany</em></h2>
+    <p class="transform-intro" data-i18n="tr_intro">Transformacja nie jest pojedynczą decyzją. To świadomy proces prowadzący do zmiany. Wspólnie przechodzimy przez kolejne etapy — od zrozumienia, gdzie jesteś, po realne wdrożenie nowej wersji siebie.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num"></span>
+        <div class="step-title" data-i18n="tr_s1t">Odkrycie</div>
+        <div class="step-desc" data-i18n="tr_s1d">Poznajemy Twoją sytuację, wartości i to, co naprawdę chcesz zmienić.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num"></span>
+        <div class="step-title" data-i18n="tr_s2t">Zrozumienie</div>
+        <div class="step-desc" data-i18n="tr_s2d">Nazywamy blokady i wzorce, które trzymają Cię w miejscu.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num"></span>
+        <div class="step-title" data-i18n="tr_s3t">Przemiana</div>
+        <div class="step-desc" data-i18n="tr_s3d">Budujemy nowe nawyki, granice i sposób myślenia o sobie.</div>
+      </div>
+      <div class="step-card">
+        <span class="step-num"></span>
+        <div class="step-title" data-i18n="tr_s4t">Wdrożenie</div>
+        <div class="step-desc" data-i18n="tr_s4d">Utrwalamy zmianę w codziennym życiu, krok po kroku.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="inner">
+    <div class="pkg-head">
+      <div class="section-label" data-i18n="pkg_label">Oferta</div>
+      <h2 class="section-title" data-i18n="pkg_title">Pakiety <em>współpracy</em></h2>
+    </div>
+    <div class="packages-grid">
+
+      <div class="pkg-card">
+        <div class="pkg-name" data-i18n="pk1_name">Bezpłatna konsultacja wstępna</div>
+        <div class="pkg-subtitle" data-i18n="pk1_sub">Pierwszy krok do świadomej zmiany.</div>
+        <div class="pkg-tagline" data-i18n="pk1_tag">Niezobowiązujące spotkanie zapoznawcze.</div>
+        <div class="pkg-price-lines">
+          <div class="line" data-i18n="pk1_price">Bezpłatna</div>
+        </div>
+        <div class="pkg-meta" data-i18n="pk1_meta">60 minut · online lub stacjonarnie</div>
+        <ul class="pkg-features">
+          <li data-i18n="pk1_f1">Rozmowa zapoznawcza 1:1</li>
+          <li data-i18n="pk1_f2">Określenie Twoich celów</li>
+          <li data-i18n="pk1_f3">Plan dalszej współpracy</li>
+        </ul>
+        <a href="#contact" class="pkg-btn" data-i18n="pkg_choose">Wybieram</a>
+      </div>
+
+      <div class="pkg-card featured">
+        <div class="pkg-name" data-i18n="pk2_name">Coaching indywidualny Premium</div>
+        <div class="pkg-subtitle" data-i18n="pk2_sub">Przestrzeń do pracy nad rozwojem osobistym, karierą, relacjami oraz rozwojem zawodowym i biznesowym.</div>
+        <div class="pkg-tagline" data-i18n="pk2_tag">Regularna praca 1:1 nad Twoim celem.</div>
+        <div class="pkg-price-lines">
+          <div class="line" data-i18n="pk2_price1">349 zł / sesja</div>
+          <div class="line" data-i18n="pk2_price2">89 EUR / sesja (Holandia i kraje UE)</div>
+        </div>
+        <div class="pkg-meta" data-i18n="pk2_meta">60 minut · online lub stacjonarnie</div>
+        <div class="pkg-sublabel" data-i18n="pk2_pkg">Pakiet 4 sesji:</div>
+        <div class="pkg-price-lines">
+          <div class="line" data-i18n="pk2_pkgprice1">1199 zł / sesja</div>
+          <div class="line" data-i18n="pk2_pkgprice2">299 EUR / sesja (Holandia i kraje UE)</div>
+        </div>
+        <ul class="pkg-features">
+          <li data-i18n="pk2_f1">Pełna sesja coachingowa</li>
+          <li data-i18n="pk2_f2">Kariera i zmiana zawodowa</li>
+          <li data-i18n="pk2_f3">Relacje</li>
+          <li data-i18n="pk2_f4">Rozwój zawodowy i biznesowy</li>
+          <li data-i18n="pk2_f5">Wsparcie dla liderów, managerów i przedsiębiorców</li>
+          <li data-i18n="pk2_f6">Rozwój kompetencji przywódczych i zarządczych</li>
+          <li data-i18n="pk2_f7">Indywidualny plan działania</li>
+          <li data-i18n="pk2_f8">Wsparcie między sesjami</li>
+          <li data-i18n="pk2_f9">Podsumowanie po spotkaniu</li>
+        </ul>
+        <a href="#contact" class="pkg-btn" data-i18n="pkg_choose">Wybieram</a>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-name" data-i18n="pk3_name">Transformacja Kariery Premium</div>
+        <div class="pkg-subtitle" data-i18n="pk3_sub">Kompleksowy proces wspierający zmianę zawodową i rozwój kariery w zgodzie ze sobą.</div>
+        <div class="pkg-tagline" data-i18n="pk3_tag">Kompleksowy program zmiany.</div>
+        <div class="pkg-price-lines">
+          <div class="line" data-i18n="pk3_price1">3990 zł / program</div>
+          <div class="line" data-i18n="pk3_price2">999 EUR / program (Holandia i kraje UE)</div>
+        </div>
+        <div class="pkg-meta" data-i18n="pk3_meta">minimum 8 sesji · proces indywidualny</div>
+        <ul class="pkg-features">
+          <li data-i18n="pk3_f1"><strong>minimum</strong> 8 sesji coachingowych</li>
+          <li data-i18n="pk3_f2"><strong>Odkrycie mocnych stron i potencjału</strong></li>
+          <li data-i18n="pk3_f3">Indywidualny plan transformacji</li>
+          <li data-i18n="pk3_f4">Materiały i ćwiczenia</li>
+          <li data-i18n="pk3_f5">Wsparcie w procesie wdrażania zmian</li>
+          <li data-i18n="pk3_f6">Sesja podsumowująca</li>
+        </ul>
+        <a href="#contact" class="pkg-btn" data-i18n="pkg_choose">Wybieram</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" data-i18n="ct_label">Kontakt</div>
+    <h2 class="section-title" data-i18n="ct_title">Zróbmy <em>pierwszy krok</em></h2>
+    <p class="contact-desc" data-i18n="ct_desc">Masz pytania lub chcesz umówić rozmowę? Zadzwoń lub napisz do mnie — odpowiem najszybciej, jak to możliwe.</p>
+    <div class="contact-links">
+      <a href="mailto:izabela.konieczna55@gmail.com" class="contact-link"><span>✉</span> izabela.konieczna55@gmail.com</a>
+      <a href="tel:+48504990339" class="contact-link"><span>☎</span> +48 504 990 339
+        <br> +31 624 771 406</a>
+      <a href="#" class="contact-link"><span>◎</span> <span data-i18n="ct_loc" style="color:inherit;">Online &amp; Stacjonarnie
+        <br> Polska &amp; Netherlands</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Izabela <span>Konieczna</span></div>
+  <div class="footer-mono" data-i18n="ft_tag">Certyfikowany coach ICF ACC</div>
+  <div class="footer-mono">© 2026</div>
+</footer>
+
+<script>
+const i18n = {
+  pl: {
+    nav_about:"O mnie", nav_transform:"Transformacja", nav_packages:"Pakiety", nav_contact:"Kontakt",
+    hero_badge:"Certyfikowany coach ICF ACC",
+    hero_name1:"Izabela", hero_name2:"Konieczna",
+    hero_role:"Coaching transformacyjny & rozwój osobisty",
+    hero_desc:"Pomagam ludziom odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny rozdział swojego życia — krok po kroku, w bezpiecznej przestrzeni.",
+    hero_cta1:"Zobacz pakiety", hero_cta2:"Umów rozmowę",
+    photo_1:"", photo_2:"Zdjęcie 2 · Gabinet",
+    about_label:"O mnie", about_title:"Z empatią i <em>jasnością</em>",
+    about_p1:"Jestem certyfikowanym coachem ICF ACC, specjalizującym się w coachingu transformacyjnym. Moją wiedzę o człowieku, świadomości i procesach rozwojowych stale pogłębiam, kontynuując edukację na kierunku psychologia. Ukończyłam również politologię, administrację oraz zarządzanie nieruchomościami.",
+    about_p2:"Przeszłam wiele własnych transformacji życiowych i zawodowych, dlatego doskonale rozumiem, jak wymagające, ale jednocześnie wartościowe mogą być momenty zmian. To właśnie połączenie wiedzy, doświadczenia oraz autentycznego zrozumienia wspiera moją pracę z klientami.",
+    about_p3:"Od lat towarzyszę ludziom w momentach przełomu — gdy dotychczasowa droga przestaje dawać satysfakcję, a nowa dopiero zaczyna się wyłaniać.",
+    about_p4:"Łączę rzetelną wiedzę z praktycznymi narzędziami coachingu. Wierzę, że każdy człowiek posiada w sobie odpowiedzi i zasoby potrzebne do rozwoju — moją rolą jest pomóc je odkryć, uporządkować i świadomie wykorzystać.",
+    about_p5:"Pracuję online oraz stacjonarnie, w atmosferze szacunku, zaufania, bezpieczeństwa i pełnej dyskrecji.",
+    tag_1:"✦ Empatia", tag_2:"Dyskrecja", tag_3:"Rozwój osobisty", tag_4:"ICF ACC", tag_5:"Online & stacjonarnie",
+    tr_label:"Proces transformacji", tr_title:"Twoja droga do <em>zmiany</em>",
+    tr_intro:"Transformacja nie jest pojedynczą decyzją. To świadomy proces prowadzący do zmiany. Wspólnie przechodzimy przez kolejne etapy — od zrozumienia, gdzie jesteś, po realne wdrożenie nowej wersji siebie.",
+    tr_s1t:"Odkrycie", tr_s1d:"Poznajemy Twoją sytuację, wartości i to, co naprawdę chcesz zmienić.",
+    tr_s2t:"Zrozumienie", tr_s2d:"Nazywamy blokady i wzorce, które trzymają Cię w miejscu.",
+    tr_s3t:"Przemiana", tr_s3d:"Budujemy nowe nawyki, granice i sposób myślenia o sobie.",
+    tr_s4t:"Wdrożenie", tr_s4d:"Utrwalamy zmianę w codziennym życiu, krok po kroku.",
+    pkg_label:"Oferta", pkg_title:"Pakiety <em>współpracy</em>", pkg_choose:"Wybieram", pkg_popular:"Najpopularniejszy",
+    pk1_name:"Bezpłatna konsultacja wstępna", pk1_sub:"Pierwszy krok do świadomej zmiany.", pk1_tag:"Niezobowiązujące spotkanie zapoznawcze.", pk1_price:"Bezpłatna", pk1_meta:"60 minut · online lub stacjonarnie",
+    pk1_f1:"Rozmowa zapoznawcza 1:1", pk1_f2:"Określenie Twoich celów", pk1_f3:"Plan dalszej współpracy",
+    pk2_name:"Coaching indywidualny Premium", pk2_sub:"Przestrzeń do pracy nad rozwojem osobistym, karierą, relacjami oraz rozwojem zawodowym i biznesowym.", pk2_tag:"Regularna praca 1:1 nad Twoim celem.", pk2_price1:"349 zł / sesja", pk2_price2:"89 EUR / sesja (Holandia i kraje UE)", pk2_meta:"60 minut · online lub stacjonarnie", pk2_pkg:"Pakiet 4 sesji:", pk2_pkgprice1:"1199 zł / sesja", pk2_pkgprice2:"299 EUR / sesja (Holandia i kraje UE)",
+    pk2_f1:"Pełna sesja coachingowa", pk2_f2:"Kariera i zmiana zawodowa", pk2_f3:"Relacje", pk2_f4:"Rozwój zawodowy i biznesowy", pk2_f5:"Wsparcie dla liderów, managerów i przedsiębiorców", pk2_f6:"Rozwój kompetencji przywódczych i zarządczych", pk2_f7:"Indywidualny plan działania", pk2_f8:"Wsparcie między sesjami", pk2_f9:"Podsumowanie po spotkaniu",
+    pk3_name:"Transformacja Kariery Premium", pk3_sub:"Kompleksowy proces wspierający zmianę zawodową i rozwój kariery w zgodzie ze sobą.", pk3_tag:"Kompleksowy program zmiany.", pk3_price1:"3990 zł / program", pk3_price2:"999 EUR / program (Holandia i kraje UE)", pk3_meta:"minimum 8 sesji · proces indywidualny",
+    pk3_f1:"<strong>minimum</strong> 8 sesji coachingowych", pk3_f2:"<strong>Odkrycie mocnych stron i potencjału</strong>", pk3_f3:"Indywidualny plan transformacji", pk3_f4:"Materiały i ćwiczenia", pk3_f5:"Wsparcie w procesie wdrażania zmian", pk3_f6:"Sesja podsumowująca",
+    ct_label:"Kontakt", ct_title:"Zróbmy <em>pierwszy krok</em>",
+    ct_desc:"Masz pytania lub chcesz umówić rozmowę? Zadzwoń lub napisz do mnie — odpowiem najszybciej, jak to możliwe.",
+    ct_loc:"Online & Stacjonarnie<br>Polska & Netherlands", ft_tag:"Certyfikowany coach ICF ACC"
+  },
+  en: {
+    nav_about:"About me", nav_transform:"Transformation", nav_packages:"Packages", nav_contact:"Contact",
+    hero_badge:"Certified ICF ACC Coach",
+    hero_name1:"Izabela", hero_name2:"Konieczna",
+    hero_role:"Transformational coaching & personal growth",
+    hero_desc:"I help people find balance, regain confidence, and consciously design the next chapter of their lives — step by step, in a safe and supportive space.",
+    hero_cta1:"View packages", hero_cta2:"Book a call",
+    photo_1:"", photo_2:"Photo 2 · Office",
+    about_label:"About me", about_title:"With empathy and <em>clarity</em>",
+    about_p1:"I'm a certified ICF ACC coach specialising in transformational coaching. I continually deepen my knowledge of people, awareness and developmental processes, while continuing my education in psychology. I have also completed studies in political science, administration, and real estate management.",
+    about_p2:"I've been through many of my own personal and professional transformations, so I understand deeply how demanding — yet how valuable — moments of change can be. It's exactly this combination of knowledge, experience and genuine understanding that supports my work with clients.",
+    about_p3:"For years I've accompanied people through pivotal moments — when the path they've been on stops bringing satisfaction, and a new one is only just beginning to emerge.",
+    about_p4:"I combine solid knowledge with practical coaching tools. I believe every person carries within them the answers and resources they need to grow — my role is to help uncover them, bring them into order, and use them consciously.",
+    about_p5:"I work both online and in person, in an atmosphere of respect, trust, safety and complete discretion.",
+    tag_1:"✦ Empathy", tag_2:"Discretion", tag_3:"Personal growth", tag_4:"ICF ACC", tag_5:"Online & in person",
+    tr_label:"The transformation process", tr_title:"Your path to <em>change</em>",
+    tr_intro:"Transformation isn't a single decision. It's a conscious process leading to change. Together we move through each stage — from understanding where you are, to truly implementing a new version of yourself.",
+    tr_s1t:"Discovery", tr_s1d:"We explore your situation, your values, and what you truly want to change.",
+    tr_s2t:"Understanding", tr_s2d:"We name the blocks and patterns keeping you stuck.",
+    tr_s3t:"Transformation", tr_s3d:"We build new habits, boundaries and a new way of thinking about yourself.",
+    tr_s4t:"Integration", tr_s4d:"We anchor the change into your everyday life, step by step.",
+    pkg_label:"Offer", pkg_title:"Coaching <em>packages</em>", pkg_choose:"Choose", pkg_popular:"Most popular",
+    pk1_name:"Free intro consultation", pk1_sub:"Your first step toward conscious change.", pk1_tag:"A relaxed, no-obligation first meeting.", pk1_price:"Free", pk1_meta:"60 minutes · online or in person",
+    pk1_f1:"1:1 introductory conversation", pk1_f2:"Defining your goals", pk1_f3:"A plan for working together",
+    pk2_name:"Premium Individual Coaching", pk2_sub:"Space to work on personal growth, career, relationships, and professional and business development.", pk2_tag:"Regular 1:1 work toward your goal.", pk2_price1:"349 zł / session", pk2_price2:"89 EUR / session (Netherlands & EU)", pk2_meta:"60 minutes · online or in person", pk2_pkg:"4-session package:", pk2_pkgprice1:"1199 zł / session", pk2_pkgprice2:"299 EUR / session (Netherlands & EU)",
+    pk2_f1:"Full coaching session", pk2_f2:"Career and professional change", pk2_f3:"Relationships", pk2_f4:"Professional and business growth", pk2_f5:"Support for leaders, managers and entrepreneurs", pk2_f6:"Developing leadership and management skills", pk2_f7:"Individual action plan", pk2_f8:"Support between sessions", pk2_f9:"Summary after each meeting",
+    pk3_name:"Premium Career Transformation", pk3_sub:"A comprehensive process supporting professional change and career growth in alignment with yourself.", pk3_tag:"A complete change program.", pk3_price1:"3990 zł / program", pk3_price2:"999 EUR / program (Netherlands & EU)", pk3_meta:"minimum 8 sessions · individual process",
+    pk3_f1:"<strong>Minimum</strong> 8 coaching sessions", pk3_f2:"<strong>Discovering strengths and potential</strong>", pk3_f3:"Personalised transformation plan", pk3_f4:"Materials and exercises", pk3_f5:"Support in implementing change", pk3_f6:"Closing session",
+    ct_label:"Contact", ct_title:"Let's take the <em>first step</em>",
+    ct_desc:"Have a question or want to book a call? Call or message me — I'll get back to you as soon as I can.",
+    ct_loc:"Online & in person<br>Poland & Netherlands", ft_tag:"Certified ICF ACC coach"
+  }
+};
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+}
+document.querySelectorAll('.lang-btn').forEach(btn =>
+  btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+
+// nav scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.background = window.scrollY > 50 ? 'rgba(251,249,245,0.96)' : 'rgba(251,249,245,0.82)';
+});
+
+// fade-in on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.step-card, .pkg-card, .about-photo, .value-tag').forEach(el => {
+  el.style.opacity='0'; el.style.transform='translateY(20px)';
+  el.style.transition='opacity 0.55s ease, transform 0.55s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
