@@ -328,7 +328,15 @@ footer {
   .z-section.reverse { direction: ltr; }
   .hero-right { order: -1; }
   .hero-photo { max-width: 320px; margin: 0 auto; }
-  .hero-photo img { width: 80%; height: auto; max-height: 84%; }
+  .hero-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 86%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(46,44,41,0.15);
+    margin-top: auto;
+  }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .packages-grid { grid-template-columns: 1fr; }
 }
