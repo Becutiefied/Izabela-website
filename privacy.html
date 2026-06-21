@@ -153,23 +153,6 @@ nav {
 .note p { margin: 0; font-size: 0.88rem; color: var(--silver-dk); }
 .placeholder { color: var(--gold); font-style: italic; }
 
-/* ── CONSENT EXAMPLE ── */
-.consent-demo {
-  background: linear-gradient(165deg, var(--beige) 0%, var(--white) 100%);
-  border: 1px solid var(--gold); border-radius: var(--radius);
-  padding: 1.75rem 1.75rem; margin-top: 1.5rem;
-}
-.consent-demo .demo-label {
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem;
-}
-.consent-row { display: flex; align-items: flex-start; gap: 0.75rem; }
-.consent-row input[type="checkbox"] {
-  margin-top: 0.35rem; width: 1.05rem; height: 1.05rem;
-  accent-color: var(--gold); flex-shrink: 0; cursor: pointer;
-}
-.consent-row label { font-size: 0.85rem; color: var(--silver-dk); line-height: 1.6; cursor: pointer; }
-
 /* ── FOOTER ── */
 footer {
   background: var(--grey); color: var(--muted-light);
@@ -230,7 +213,6 @@ footer {
     <ul>
       <li data-i18n="s1_l1">E-mail: izabela.konieczna55@gmail.com</li>
       <li data-i18n="s1_l2">Telefon: +48 504 990 339 · +31 624 771 406</li>
-      <li data-i18n="s1_l3"><span class="placeholder">[Adres / siedziba — do uzupełnienia, jeśli wymagany]</span></li>
     </ul>
   </section>
 
@@ -247,12 +229,12 @@ footer {
 
   <section class="legal-section">
     <h2><span class="num">03</span> <span data-i18n="s3_h">Cel i podstawa prawna</span></h2>
-    <p data-i18n="s3_p">Dane przetwarzane są wyłącznie w celu udzielenia odpowiedzi na zapytanie oraz przekazania informacji o usługach coachingowych. Podstawą prawną jest zgoda osoby, której dane dotyczą (art. 6 ust. 1 lit. a RODO) oraz, w zakresie ewentualnych działań przed zawarciem umowy, art. 6 ust. 1 lit. b RODO. Podanie danych jest dobrowolne, lecz niezbędne do udzielenia odpowiedzi.</p>
+    <p data-i18n="s3_p">Dane przetwarzane są wyłącznie w celu udzielenia odpowiedzi na zapytanie oraz przekazania informacji o usługach coachingowych. Podstawą prawną przetwarzania jest podjęcie działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy (art. 6 ust. 1 lit. b RODO) oraz prawnie uzasadniony interes administratora polegający na udzieleniu odpowiedzi na otrzymane zapytanie (art. 6 ust. 1 lit. f RODO). Podanie danych jest dobrowolne, lecz niezbędne do udzielenia odpowiedzi.</p>
   </section>
 
   <section class="legal-section">
     <h2><span class="num">04</span> <span data-i18n="s4_h">Okres przechowywania</span></h2>
-    <p data-i18n="s4_p">Dane przechowywane są przez okres niezbędny do obsługi zapytania, a następnie usuwane, chyba że dalsze przechowywanie jest wymagane przepisami prawa lub wynika z nawiązanej współpracy. <span class="placeholder">[Zalecane: wskazać konkretny okres, np. 12 miesięcy od ostatniego kontaktu.]</span></p>
+    <p data-i18n="s4_p">Dane przechowywane są przez okres niezbędny do obsługi zapytania, nie dłużej niż 12 miesięcy od ostatniego kontaktu, a następnie są usuwane, chyba że dalsze przechowywanie jest wymagane przepisami prawa lub wynika z nawiązanej współpracy.</p>
   </section>
 
   <section class="legal-section">
@@ -299,18 +281,6 @@ footer {
     <p data-i18n="s10_p">W sprawach dotyczących danych osobowych skontaktuj się pod adresem: izabela.konieczna55@gmail.com.</p>
   </section>
 
-  <section class="legal-section">
-    <h2><span class="num">✦</span> <span data-i18n="consent_h">Przykład: zgoda w formularzu kontaktowym</span></h2>
-    <p data-i18n="consent_intro">Poniżej znajduje się przykład, jak powinien wyglądać checkbox zgody umieszczony pod formularzem kontaktowym:</p>
-    <div class="consent-demo">
-      <span class="demo-label" data-i18n="consent_demolabel">Podgląd</span>
-      <div class="consent-row">
-        <input type="checkbox" id="consent-demo">
-        <label for="consent-demo" data-i18n="consent_text">Zapoznałam/em się z Polityką prywatności i wyrażam zgodę na przetwarzanie moich danych osobowych w celu udzielenia odpowiedzi na moje zapytanie.</label>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer>
@@ -331,14 +301,13 @@ const i18n = {
     s1_p:"<strong>Izabela Konieczna</strong>, prowadząca działalność coachingową w Polsce i w Holandii.",
     s1_l1:"E-mail: izabela.konieczna55@gmail.com",
     s1_l2:"Telefon: +48 504 990 339 · +31 624 771 406",
-    s1_l3:"<span class='placeholder'>[Adres / siedziba — do uzupełnienia, jeśli wymagany]</span>",
     s2_h:"Jakie dane zbieramy",
     s2_p:"W przypadku kontaktu przez formularz, e-mail lub telefon przetwarzane są następujące dane:",
     s2_l1:"Imię i nazwisko", s2_l2:"Adres e-mail", s2_l3:"Numer telefonu (jeśli zostanie podany)", s2_l4:"Treść wiadomości",
     s3_h:"Cel i podstawa prawna",
-    s3_p:"Dane przetwarzane są wyłącznie w celu udzielenia odpowiedzi na zapytanie oraz przekazania informacji o usługach coachingowych. Podstawą prawną jest zgoda osoby, której dane dotyczą (art. 6 ust. 1 lit. a RODO) oraz, w zakresie ewentualnych działań przed zawarciem umowy, art. 6 ust. 1 lit. b RODO. Podanie danych jest dobrowolne, lecz niezbędne do udzielenia odpowiedzi.",
+    s3_p:"Dane przetwarzane są wyłącznie w celu udzielenia odpowiedzi na zapytanie oraz przekazania informacji o usługach coachingowych. Podstawą prawną przetwarzania jest podjęcie działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy (art. 6 ust. 1 lit. b RODO) oraz prawnie uzasadniony interes administratora polegający na udzieleniu odpowiedzi na otrzymane zapytanie (art. 6 ust. 1 lit. f RODO). Podanie danych jest dobrowolne, lecz niezbędne do udzielenia odpowiedzi.",
     s4_h:"Okres przechowywania",
-    s4_p:"Dane przechowywane są przez okres niezbędny do obsługi zapytania, a następnie usuwane, chyba że dalsze przechowywanie jest wymagane przepisami prawa lub wynika z nawiązanej współpracy. <span class='placeholder'>[Zalecane: wskazać konkretny okres, np. 12 miesięcy od ostatniego kontaktu.]</span>",
+    s4_p:"Dane przechowywane są przez okres niezbędny do obsługi zapytania, nie dłużej niż 12 miesięcy od ostatniego kontaktu, a następnie są usuwane, chyba że dalsze przechowywanie jest wymagane przepisami prawa lub wynika z nawiązanej współpracy.",
     s5_h:"Odbiorcy danych i podmioty przetwarzające",
     s5_p:"W celu prowadzenia strony i komunikacji korzystamy z usług zewnętrznych dostawców, którzy mogą przetwarzać dane w naszym imieniu:",
     s5_l1:"<strong>Dostawca poczty e-mail</strong> (np. Google / Gmail) — obsługa korespondencji",
@@ -356,10 +325,6 @@ const i18n = {
     s9_p:"Strona w obecnej formie nie wykorzystuje własnych plików cookies do celów analitycznych ani marketingowych. Jeśli w przyszłości dodane zostaną narzędzia analityczne (np. statystyki odwiedzin), niniejsza polityka zostanie odpowiednio zaktualizowana.",
     s10_h:"Kontakt",
     s10_p:"W sprawach dotyczących danych osobowych skontaktuj się pod adresem: izabela.konieczna55@gmail.com.",
-    consent_h:"Przykład: zgoda w formularzu kontaktowym",
-    consent_intro:"Poniżej znajduje się przykład, jak powinien wyglądać checkbox zgody umieszczony pod formularzem kontaktowym:",
-    consent_demolabel:"Podgląd",
-    consent_text:"Zapoznałam/em się z Polityką prywatności i wyrażam zgodę na przetwarzanie moich danych osobowych w celu udzielenia odpowiedzi na moje zapytanie.",
     ft_privacy:"Polityka prywatności", ft_contact:"Kontakt"
   },
   en: {
@@ -369,14 +334,13 @@ const i18n = {
     s1_p:"<strong>Izabela Konieczna</strong>, providing coaching services in Poland and the Netherlands.",
     s1_l1:"Email: izabela.konieczna55@gmail.com",
     s1_l2:"Phone: +48 504 990 339 · +31 624 771 406",
-    s1_l3:"<span class='placeholder'>[Address / registered seat — to be added if required]</span>",
     s2_h:"What data we collect",
     s2_p:"When you contact us via the form, email or phone, the following data is processed:",
     s2_l1:"First and last name", s2_l2:"Email address", s2_l3:"Phone number (if provided)", s2_l4:"Message content",
     s3_h:"Purpose and legal basis",
-    s3_p:"Data is processed solely to respond to your inquiry and to provide information about coaching services. The legal basis is the consent of the data subject (Art. 6(1)(a) GDPR) and, for any steps taken prior to entering into a contract, Art. 6(1)(b) GDPR. Providing your data is voluntary but necessary in order to receive a reply.",
+    s3_p:"Data is processed solely to respond to your inquiry and to provide information about coaching services. The legal basis is the taking of steps at the data subject's request prior to entering into a contract (Art. 6(1)(b) GDPR), and the controller's legitimate interest in responding to inquiries received (Art. 6(1)(f) GDPR). Providing your data is voluntary but necessary in order to receive a reply.",
     s4_h:"Retention period",
-    s4_p:"Data is stored for as long as necessary to handle your inquiry and is then deleted, unless further retention is required by law or follows from an established working relationship. <span class='placeholder'>[Recommended: state a specific period, e.g. 12 months from last contact.]</span>",
+    s4_p:"Data is stored for as long as necessary to handle your inquiry, and no longer than 12 months from the last contact, after which it is deleted, unless further retention is required by law or follows from an established working relationship.",
     s5_h:"Recipients and processors",
     s5_p:"To run the website and handle communication, we use external service providers who may process data on our behalf:",
     s5_l1:"<strong>Email provider</strong> (e.g. Google / Gmail) — handling correspondence",
@@ -394,10 +358,6 @@ const i18n = {
     s9_p:"In its current form, the website does not use its own cookies for analytics or marketing purposes. If analytics tools (e.g. visit statistics) are added in the future, this policy will be updated accordingly.",
     s10_h:"Contact",
     s10_p:"For any matters regarding your personal data, please contact: izabela.konieczna55@gmail.com.",
-    consent_h:"Example: consent in the contact form",
-    consent_intro:"Below is an example of how the consent checkbox should look beneath the contact form:",
-    consent_demolabel:"Preview",
-    consent_text:"I have read the Privacy Policy and consent to the processing of my personal data for the purpose of responding to my inquiry.",
     ft_privacy:"Privacy Policy", ft_contact:"Contact"
   }
 };
