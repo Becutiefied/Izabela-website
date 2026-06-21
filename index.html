@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Izabela Konieczna — Coach ICF ACC & Coaching Transformacyjny</title>
+<title>Certyfikowany coach | Professional Coach ACSTH</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -130,7 +130,7 @@ nav {
 }
 .hero-desc {
   font-size: 1.05rem; color: var(--muted); max-width: 440px;
-  line-height: 1.9; margin-bottom: 2.5rem;
+  line-height: 1.9; margin-bottom: 2.5rem; text-align: justify;
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn-primary {
@@ -188,7 +188,7 @@ nav {
   letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.85rem;
   display: flex; align-items: center; gap: 0.75rem;
 }
-.section-label::before { content: '—'; color: var(--silver); }
+.section-label::before { content: '-'; color: var(--silver); }
 .section-title {
   font-family: var(--serif); font-size: clamp(2.1rem, 4.5vw, 3.4rem);
   font-weight: 300; line-height: 1.12; margin-bottom: 1.25rem; color: var(--grey);
@@ -204,7 +204,7 @@ nav {
 
 /* ── ABOUT ── */
 #about { background: var(--beige); }
-#about p { color: var(--silver-dk); margin-bottom: 1.1rem; line-height: 1.95; }
+#about p { color: var(--silver-dk); margin-bottom: 1.1rem; line-height: 1.95; text-align: justify; }
 .about-photo {
   aspect-ratio: 3 / 4; border-radius: 18px;
   background: linear-gradient(160deg, var(--white), var(--beige-deep));
@@ -227,7 +227,7 @@ nav {
 #transform .section-title { color: var(--white); }
 #transform .section-label { color: var(--gold-light); }
 #transform .section-label::before { color: var(--silver); }
-.transform-intro { color: var(--muted-light); max-width: 620px; line-height: 1.95; margin-bottom: 3.5rem; font-size: 1.05rem; }
+.transform-intro { color: var(--muted-light); max-width: 620px; line-height: 1.95; margin-bottom: 3.5rem; font-size: 1.05rem; text-align: justify; }
 .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
 .step-card {
   background: var(--grey-soft); border: 1px solid rgba(167,171,176,0.12);
@@ -293,7 +293,7 @@ nav {
 #contact { background: var(--beige); padding: 7rem 4rem; }
 .contact-inner { max-width: 760px; margin: 0 auto; text-align: center; }
 .contact-inner .section-label { justify-content: center; }
-.contact-desc { color: var(--silver-dk); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.9; }
+.contact-desc { color: var(--silver-dk); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.9; text-align: justify; }
 .contact-links { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
 .contact-link {
   display: flex; align-items: center; gap: 0.7rem;
@@ -312,6 +312,12 @@ footer {
 }
 .footer-name { font-family: var(--serif); font-size: 1.25rem; color: var(--white); }
 .footer-name span { color: var(--gold); font-style: italic; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-family: var(--mono); font-size: 0.65rem; color: var(--silver);
+  letter-spacing: 0.1em; text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold-light); }
 .footer-mono { font-family: var(--mono); font-size: 0.65rem; color: var(--silver); letter-spacing: 0.1em; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
@@ -364,13 +370,13 @@ footer {
 <header id="hero">
   <div class="hero-content">
     <div class="hero-left">
-      <div class="hero-badge" data-i18n="hero_badge">Certyfikowany coach ICF ACC</div>
+      <div class="hero-badge" data-i18n="hero_badge">Certyfikowany coach | Professional Coach ACSTH</div>
       <h1 class="hero-name">
         <span data-i18n="hero_name1">Izabela</span>
         <em data-i18n="hero_name2">Konieczna</em>
       </h1>
       <p class="hero-role" data-i18n="hero_role">Coaching transformacyjny &amp; rozwój osobisty</p>
-      <p class="hero-desc" data-i18n="hero_desc">Pomagam ludziom odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny rozdział swojego życia — krok po kroku, w bezpiecznej przestrzeni.</p>
+      <p class="hero-desc" data-i18n="hero_desc">Pomagam ludziom odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny rozdział swojego życia - krok po kroku, w bezpiecznej przestrzeni.</p>
       <div class="hero-actions">
         <a href="#packages" class="btn-primary" data-i18n="hero_cta1">Zobacz pakiety</a>
         <a href="#contact" class="btn-outline" data-i18n="hero_cta2">Umów rozmowę</a>
@@ -392,16 +398,16 @@ footer {
     <div class="about-text">
       <div class="section-label" data-i18n="about_label">O mnie</div>
       <h2 class="section-title" data-i18n="about_title">Z empatią i <em>jasnością</em></h2>
-      <p data-i18n="about_p1">Jestem certyfikowanym coachem ICF ACC, specjalizującym się w coachingu transformacyjnym. Moją wiedzę o człowieku, świadomości i procesach rozwojowych stale pogłębiam, kontynuując edukację na kierunku psychologia. Ukończyłam również politologię, administrację oraz zarządzanie nieruchomościami.</p>
+      <p data-i18n="about_p1">Jestem certyfikowanym coachem, absolwentką studiów podyplomowych z coachingu na Uniwersytecie im. Adama Mickiewicza w Poznaniu oraz programu Professional Coach ACSTH realizowanego zgodnie ze standardami International Coaching Federation (ICF). Specjalizuję się w transformacji kariery, rozwoju osobistym oraz wspieraniu klientów w świadomym budowaniu satysfakcjonującego życia zawodowego i osobistego. Moją wiedzę o człowieku, świadomości i procesach rozwojowych stale pogłębiam, kontynuując edukację na kierunku psychologia. Łączę profesjonalne przygotowanie coachingowe z wieloletnim doświadczeniem zawodowym w środowisku biznesowym i międzynarodowym. Moje wykształcenie obejmuje również politologię, administrację oraz zarządzanie nieruchomościami, co pozwala mi łączyć perspektywę rozwoju osobistego z praktycznym doświadczeniem zawodowym i biznesowym.</p>
       <p data-i18n="about_p2">Przeszłam wiele własnych transformacji życiowych i zawodowych, dlatego doskonale rozumiem, jak wymagające, ale jednocześnie wartościowe mogą być momenty zmian. To właśnie połączenie wiedzy, doświadczenia oraz autentycznego zrozumienia wspiera moją pracę z klientami.</p>
-      <p data-i18n="about_p3">Od lat towarzyszę ludziom w momentach przełomu — gdy dotychczasowa droga przestaje dawać satysfakcję, a nowa dopiero zaczyna się wyłaniać.</p>
-      <p data-i18n="about_p4">Łączę rzetelną wiedzę z praktycznymi narzędziami coachingu. Wierzę, że każdy człowiek posiada w sobie odpowiedzi i zasoby potrzebne do rozwoju — moją rolą jest pomóc je odkryć, uporządkować i świadomie wykorzystać.</p>
+      <p data-i18n="about_p3">Od lat towarzyszę ludziom w momentach przełomu - gdy dotychczasowa droga przestaje dawać satysfakcję, a nowa dopiero zaczyna się wyłaniać.</p>
+      <p data-i18n="about_p4">Łączę rzetelną wiedzę z praktycznymi narzędziami coachingu. Wierzę, że każdy człowiek posiada w sobie odpowiedzi i zasoby potrzebne do rozwoju - moją rolą jest pomóc je odkryć, uporządkować i świadomie wykorzystać.</p>
       <p data-i18n="about_p5">Pracuję online oraz stacjonarnie, w atmosferze szacunku, zaufania, bezpieczeństwa i pełnej dyskrecji.</p>
       <div class="value-tags">
         <span class="value-tag gold" data-i18n="tag_1">✦ Empatia</span>
         <span class="value-tag" data-i18n="tag_2">Dyskrecja</span>
         <span class="value-tag" data-i18n="tag_3">Rozwój osobisty</span>
-        <span class="value-tag" data-i18n="tag_4">ICF ACC</span>
+        <span class="value-tag" data-i18n="tag_4">Coaching transformacyjny</span>
         <span class="value-tag" data-i18n="tag_5">Online &amp; stacjonarnie</span>
       </div>
     </div>
@@ -418,7 +424,7 @@ footer {
   <div style="max-width:1180px;margin:0 auto;padding:7rem 4rem;">
     <div class="section-label" data-i18n="tr_label">Proces transformacji</div>
     <h2 class="section-title" data-i18n="tr_title">Twoja droga do <em>zmiany</em></h2>
-    <p class="transform-intro" data-i18n="tr_intro">Transformacja nie jest pojedynczą decyzją. To świadomy proces prowadzący do zmiany. Wspólnie przechodzimy przez kolejne etapy — od zrozumienia, gdzie jesteś, po realne wdrożenie nowej wersji siebie.</p>
+    <p class="transform-intro" data-i18n="tr_intro">Transformacja nie jest pojedynczą decyzją. To świadomy proces prowadzący do zmiany. Wspólnie przechodzimy przez kolejne etapy - od zrozumienia, gdzie jesteś, po realne wdrożenie nowej wersji siebie.</p>
     <div class="steps-grid">
       <div class="step-card">
         <span class="step-num"></span>
@@ -526,7 +532,7 @@ footer {
   <div class="contact-inner">
     <div class="section-label" data-i18n="ct_label">Kontakt</div>
     <h2 class="section-title" data-i18n="ct_title">Zróbmy <em>pierwszy krok</em></h2>
-    <p class="contact-desc" data-i18n="ct_desc">Masz pytania lub chcesz umówić rozmowę? Zadzwoń lub napisz do mnie — odpowiem najszybciej, jak to możliwe.</p>
+    <p class="contact-desc" data-i18n="ct_desc">Masz pytania lub chcesz umówić rozmowę? Zadzwoń lub napisz do mnie - odpowiem najszybciej, jak to możliwe.</p>
     <div class="contact-links">
       <a href="mailto:izabela.konieczna55@gmail.com" class="contact-link"><span>✉</span> izabela.konieczna55@gmail.com</a>
       <a href="tel:+48504990339" class="contact-link"><span>☎</span> +48 504 990 339
@@ -539,7 +545,11 @@ footer {
 
 <footer>
   <div class="footer-name">Izabela <span>Konieczna</span></div>
-  <div class="footer-mono" data-i18n="ft_tag">Certyfikowany coach ICF ACC</div>
+  <div class="footer-links">
+    <a href="privacy.html" data-i18n="ft_privacy">Polityka prywatności</a>
+    <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+  </div>
+  <div class="footer-mono" data-i18n="ft_tag">Certyfikowany coach | Professional Coach ACSTH</div>
   <div class="footer-mono">© 2026</div>
 </footer>
 
@@ -547,21 +557,21 @@ footer {
 const i18n = {
   pl: {
     nav_about:"O mnie", nav_transform:"Transformacja", nav_packages:"Pakiety", nav_contact:"Kontakt",
-    hero_badge:"Certyfikowany coach ICF ACC",
+    hero_badge:"Certyfikowany coach | Professional Coach ACSTH",
     hero_name1:"Izabela", hero_name2:"Konieczna",
     hero_role:"Coaching transformacyjny & rozwój osobisty",
-    hero_desc:"Pomagam ludziom odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny rozdział swojego życia — krok po kroku, w bezpiecznej przestrzeni.",
+    hero_desc:"Pomagam ludziom odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny rozdział swojego życia - krok po kroku, w bezpiecznej przestrzeni.",
     hero_cta1:"Zobacz pakiety", hero_cta2:"Umów rozmowę",
     photo_1:"", photo_2:"",
     about_label:"O mnie", about_title:"Z empatią i <em>jasnością</em>",
-    about_p1:"Jestem certyfikowanym coachem ICF ACC, specjalizującym się w coachingu transformacyjnym. Moją wiedzę o człowieku, świadomości i procesach rozwojowych stale pogłębiam, kontynuując edukację na kierunku psychologia. Ukończyłam również politologię, administrację oraz zarządzanie nieruchomościami.",
+    about_p1:"Jestem certyfikowanym coachem, absolwentką studiów podyplomowych z coachingu na Uniwersytecie im. Adama Mickiewicza w Poznaniu oraz programu Professional Coach ACSTH realizowanego zgodnie ze standardami International Coaching Federation (ICF). Specjalizuję się w transformacji kariery, rozwoju osobistym oraz wspieraniu klientów w świadomym budowaniu satysfakcjonującego życia zawodowego i osobistego. Moją wiedzę o człowieku, świadomości i procesach rozwojowych stale pogłębiam, kontynuując edukację na kierunku psychologia. Łączę profesjonalne przygotowanie coachingowe z wieloletnim doświadczeniem zawodowym w środowisku biznesowym i międzynarodowym. Moje wykształcenie obejmuje również politologię, administrację oraz zarządzanie nieruchomościami, co pozwala mi łączyć perspektywę rozwoju osobistego z praktycznym doświadczeniem zawodowym i biznesowym.",
     about_p2:"Przeszłam wiele własnych transformacji życiowych i zawodowych, dlatego doskonale rozumiem, jak wymagające, ale jednocześnie wartościowe mogą być momenty zmian. To właśnie połączenie wiedzy, doświadczenia oraz autentycznego zrozumienia wspiera moją pracę z klientami.",
-    about_p3:"Od lat towarzyszę ludziom w momentach przełomu — gdy dotychczasowa droga przestaje dawać satysfakcję, a nowa dopiero zaczyna się wyłaniać.",
-    about_p4:"Łączę rzetelną wiedzę z praktycznymi narzędziami coachingu. Wierzę, że każdy człowiek posiada w sobie odpowiedzi i zasoby potrzebne do rozwoju — moją rolą jest pomóc je odkryć, uporządkować i świadomie wykorzystać.",
+    about_p3:"Od lat towarzyszę ludziom w momentach przełomu - gdy dotychczasowa droga przestaje dawać satysfakcję, a nowa dopiero zaczyna się wyłaniać.",
+    about_p4:"Łączę rzetelną wiedzę z praktycznymi narzędziami coachingu. Wierzę, że każdy człowiek posiada w sobie odpowiedzi i zasoby potrzebne do rozwoju - moją rolą jest pomóc je odkryć, uporządkować i świadomie wykorzystać.",
     about_p5:"Pracuję online oraz stacjonarnie, w atmosferze szacunku, zaufania, bezpieczeństwa i pełnej dyskrecji.",
-    tag_1:"✦ Empatia", tag_2:"Dyskrecja", tag_3:"Rozwój osobisty", tag_4:"ICF ACC", tag_5:"Online & stacjonarnie",
+    tag_1:"✦ Empatia", tag_2:"Dyskrecja", tag_3:"Rozwój osobisty", tag_4:"Coaching transformacyjny", tag_5:"Online & stacjonarnie",
     tr_label:"Proces transformacji", tr_title:"Twoja droga do <em>zmiany</em>",
-    tr_intro:"Transformacja nie jest pojedynczą decyzją. To świadomy proces prowadzący do zmiany. Wspólnie przechodzimy przez kolejne etapy — od zrozumienia, gdzie jesteś, po realne wdrożenie nowej wersji siebie.",
+    tr_intro:"Transformacja nie jest pojedynczą decyzją. To świadomy proces prowadzący do zmiany. Wspólnie przechodzimy przez kolejne etapy - od zrozumienia, gdzie jesteś, po realne wdrożenie nowej wersji siebie.",
     tr_s1t:"Odkrycie", tr_s1d:"Poznajemy Twoją sytuację, wartości i to, co naprawdę chcesz zmienić.",
     tr_s2t:"Zrozumienie", tr_s2d:"Nazywamy blokady i wzorce, które trzymają Cię w miejscu.",
     tr_s3t:"Przemiana", tr_s3d:"Budujemy nowe nawyki, granice i sposób myślenia o sobie.",
@@ -572,28 +582,29 @@ const i18n = {
     pk2_name:"Coaching indywidualny Premium", pk2_sub:"Przestrzeń do pracy nad rozwojem osobistym, karierą, relacjami oraz rozwojem zawodowym i biznesowym.", pk2_tag:"Regularna praca 1:1 nad Twoim celem.", pk2_price1:"349 zł / sesja", pk2_price2:"89 EUR / sesja (Holandia i kraje UE)", pk2_meta:"60 minut · online lub stacjonarnie", pk2_pkg:"Pakiet 4 sesji:", pk2_pkgprice1:"1199 zł / sesja", pk2_pkgprice2:"299 EUR / sesja (Holandia i kraje UE)",
     pk2_f1:"Pełna sesja coachingowa", pk2_f2:"Kariera i zmiana zawodowa", pk2_f3:"Relacje", pk2_f4:"Rozwój zawodowy i biznesowy", pk2_f5:"Wsparcie dla liderów, managerów i przedsiębiorców", pk2_f6:"Rozwój kompetencji przywódczych i zarządczych", pk2_f7:"Indywidualny plan działania", pk2_f8:"Wsparcie między sesjami", pk2_f9:"Podsumowanie po spotkaniu",
     pk3_name:"Transformacja Kariery Premium", pk3_sub:"Kompleksowy proces wspierający zmianę zawodową i rozwój kariery w zgodzie ze sobą.", pk3_tag:"Kompleksowy program zmiany.", pk3_price1:"3990 zł / program", pk3_price2:"999 EUR / program (Holandia i kraje UE)", pk3_meta:"minimum 8 sesji · proces indywidualny",
-    pk3_f1:"<strong>minimum</strong> 8 sesji coachingowych", pk3_f2:"<strong>Odkrycie mocnych stron i potencjału</strong>", pk3_f3:"Indywidualny plan transformacji", pk3_f4:"Materiały i ćwiczenia", pk3_f5:"Wsparcie w procesie wdrażania zmian", pk3_f6:"Sesja podsumowująca",
+    pk3_f1:"Minimum 8 sesji coachingowych", pk3_f2:"Odkrycie mocnych stron i potencjału", pk3_f3:"Indywidualny plan transformacji", pk3_f4:"Materiały i ćwiczenia", pk3_f5:"Wsparcie w procesie wdrażania zmian", pk3_f6:"Sesja podsumowująca",
     ct_label:"Kontakt", ct_title:"Zróbmy <em>pierwszy krok</em>",
-    ct_desc:"Masz pytania lub chcesz umówić rozmowę? Zadzwoń lub napisz do mnie — odpowiem najszybciej, jak to możliwe.",
-    ct_loc:"Online & Stacjonarnie<br>Polska & Netherlands", ft_tag:"Certyfikowany coach ICF ACC"
+    ct_desc:"Masz pytania lub chcesz umówić rozmowę? Zadzwoń lub napisz do mnie - odpowiem najszybciej, jak to możliwe.",
+    ct_loc:"Online & Stacjonarnie<br>Polska & Netherlands", ft_tag:"Certyfikowany coach | Professional Coach ACSTH",
+    ft_privacy:"Polityka prywatności"
   },
   en: {
     nav_about:"About me", nav_transform:"Transformation", nav_packages:"Packages", nav_contact:"Contact",
-    hero_badge:"Certified ICF ACC Coach",
+    hero_badge:"Certified Coach | Professional Coach ACSTH",
     hero_name1:"Izabela", hero_name2:"Konieczna",
     hero_role:"Transformational coaching & personal growth",
-    hero_desc:"I help people find balance, regain confidence, and consciously design the next chapter of their lives — step by step, in a safe and supportive space.",
+    hero_desc:"I help people find balance, regain confidence, and consciously design the next chapter of their lives - step by step, in a safe and supportive space.",
     hero_cta1:"View packages", hero_cta2:"Book a call",
     photo_1:"", photo_2:"",
     about_label:"About me", about_title:"With empathy and <em>clarity</em>",
-    about_p1:"I'm a certified ICF ACC coach specialising in transformational coaching. I continually deepen my knowledge of people, awareness and developmental processes, while continuing my education in psychology. I have also completed studies in political science, administration, and real estate management.",
-    about_p2:"I've been through many of my own personal and professional transformations, so I understand deeply how demanding — yet how valuable — moments of change can be. It's exactly this combination of knowledge, experience and genuine understanding that supports my work with clients.",
-    about_p3:"For years I've accompanied people through pivotal moments — when the path they've been on stops bringing satisfaction, and a new one is only just beginning to emerge.",
-    about_p4:"I combine solid knowledge with practical coaching tools. I believe every person carries within them the answers and resources they need to grow — my role is to help uncover them, bring them into order, and use them consciously.",
+    about_p1:"I am a certified coach, a postgraduate alumna of the coaching programme at Adam Mickiewicz University in Poznań, and a graduate of the Professional Coach ACSTH programme conducted in accordance with the standards of the International Coaching Federation (ICF). I specialise in career transformation, personal development, and supporting clients in consciously building a fulfilling professional and personal life. I continually deepen my knowledge of people, awareness and developmental processes through ongoing education in psychology. I combine professional coaching preparation with years of experience in business and international environments. My education also includes political science, administration and real estate management, which allows me to combine a personal development perspective with practical professional and business experience.",
+    about_p2:"I've been through many of my own personal and professional transformations, so I understand deeply how demanding - yet how valuable - moments of change can be. It's exactly this combination of knowledge, experience and genuine understanding that supports my work with clients.",
+    about_p3:"For years I've accompanied people through pivotal moments - when the path they've been on stops bringing satisfaction, and a new one is only just beginning to emerge.",
+    about_p4:"I combine solid knowledge with practical coaching tools. I believe every person carries within them the answers and resources they need to grow - my role is to help uncover them, bring them into order, and use them consciously.",
     about_p5:"I work both online and in person, in an atmosphere of respect, trust, safety and complete discretion.",
-    tag_1:"✦ Empathy", tag_2:"Discretion", tag_3:"Personal growth", tag_4:"ICF ACC", tag_5:"Online & in person",
+    tag_1:"✦ Empathy", tag_2:"Discretion", tag_3:"Personal growth", tag_4:"Transformational coaching", tag_5:"Online & in person",
     tr_label:"The transformation process", tr_title:"Your path to <em>change</em>",
-    tr_intro:"Transformation isn't a single decision. It's a conscious process leading to change. Together we move through each stage — from understanding where you are, to truly implementing a new version of yourself.",
+    tr_intro:"Transformation isn't a single decision. It's a conscious process leading to change. Together we move through each stage - from understanding where you are, to truly implementing a new version of yourself.",
     tr_s1t:"Discovery", tr_s1d:"We explore your situation, your values, and what you truly want to change.",
     tr_s2t:"Understanding", tr_s2d:"We name the blocks and patterns keeping you stuck.",
     tr_s3t:"Transformation", tr_s3d:"We build new habits, boundaries and a new way of thinking about yourself.",
@@ -604,24 +615,35 @@ const i18n = {
     pk2_name:"Premium Individual Coaching", pk2_sub:"Space to work on personal growth, career, relationships, and professional and business development.", pk2_tag:"Regular 1:1 work toward your goal.", pk2_price1:"349 zł / session", pk2_price2:"89 EUR / session (Netherlands & EU)", pk2_meta:"60 minutes · online or in person", pk2_pkg:"4-session package:", pk2_pkgprice1:"1199 zł / session", pk2_pkgprice2:"299 EUR / session (Netherlands & EU)",
     pk2_f1:"Full coaching session", pk2_f2:"Career and professional change", pk2_f3:"Relationships", pk2_f4:"Professional and business growth", pk2_f5:"Support for leaders, managers and entrepreneurs", pk2_f6:"Developing leadership and management skills", pk2_f7:"Individual action plan", pk2_f8:"Support between sessions", pk2_f9:"Summary after each meeting",
     pk3_name:"Premium Career Transformation", pk3_sub:"A comprehensive process supporting professional change and career growth in alignment with yourself.", pk3_tag:"A complete change program.", pk3_price1:"3990 zł / program", pk3_price2:"999 EUR / program (Netherlands & EU)", pk3_meta:"minimum 8 sessions · individual process",
-    pk3_f1:"<strong>Minimum</strong> 8 coaching sessions", pk3_f2:"<strong>Discovering strengths and potential</strong>", pk3_f3:"Personalised transformation plan", pk3_f4:"Materials and exercises", pk3_f5:"Support in implementing change", pk3_f6:"Closing session",
+    pk3_f1:"Minimum 8 coaching sessions", pk3_f2:"Discovering strengths and potential", pk3_f3:"Personalised transformation plan", pk3_f4:"Materials and exercises", pk3_f5:"Support in implementing change", pk3_f6:"Closing session",
     ct_label:"Contact", ct_title:"Let's take the <em>first step</em>",
-    ct_desc:"Have a question or want to book a call? Call or message me — I'll get back to you as soon as I can.",
-    ct_loc:"Online & in person<br>Poland & Netherlands", ft_tag:"Certified ICF ACC coach"
+    ct_desc:"Have a question or want to book a call? Call or message me - I'll get back to you as soon as I can.",
+    ct_loc:"Online & in person<br>Poland & Netherlands", ft_tag:"Certified Coach | Professional Coach ACSTH",
+    ft_privacy:"Privacy Policy"
   }
 };
+
+function fixOrphans(html) {
+  // Vaste spatie (non-breaking space) na losse Poolse letterwoordjes, zodat ze niet aan het regeleinde blijven hangen
+  return html.replace(/([ >])(to|się|[aioówzAIOÓWZ]) /gi, '$1$2\u00A0');
+}
 
 function setLang(lang) {
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+    if (i18n[lang][key] !== undefined) el.innerHTML = fixOrphans(i18n[lang][key]);
   });
   document.querySelectorAll('.lang-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.lang === lang));
 }
 document.querySelectorAll('.lang-btn').forEach(btn =>
   btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+
+// Pas de orphan-fix toe op de initiële statische HTML
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  el.innerHTML = fixOrphans(el.innerHTML);
+});
 
 // nav scroll effect
 window.addEventListener('scroll', () => {
