@@ -279,7 +279,10 @@ nav {
   background: var(--gold); color: var(--white); padding: 0.3rem 1rem; border-radius: 99px;
 }
 .pkg-name { font-family: var(--serif); font-size: 1.7rem; font-weight: 500; color: var(--grey); margin-bottom: 0.25rem; line-height: 1.15; }
-.pkg-subtitle { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold); margin-bottom: 1rem; line-height: 1.3; }
+@media (max-width: 900px) {
+  /* ...bestaande regels... */
+  .pkg-subtitle-sm { font-size: 0.72rem; letter-spacing: 0.03em; }
+}.pkg-subtitle { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold); margin-bottom: 1rem; line-height: 1.3; }
 .pkg-tagline { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; min-height: 2.4em; }
 .pkg-price-lines { margin-bottom: 1.25rem; }
 .pkg-price-lines .line { font-family: var(--serif); font-size: 1.4rem; color: var(--gold); line-height: 1.4; }
@@ -475,59 +478,69 @@ footer {
     </div>
     <div class="packages-grid">
 
-      <div class="pkg-card">
-        <div class="pkg-name" data-i18n="pk1_name">Bezpłatna konsultacja wstępna</div>
-        <div class="pkg-subtitle" data-i18n="pk1_sub">Pierwszy krok do świadomej zmiany.</div>
-        <div class="pkg-tagline" data-i18n="pk1_tag">Niezobowiązujące spotkanie zapoznawcze.</div>
+        <div class="pkg-card">
+        <div class="pkg-name" data-i18n="pk1_name">Coaching indywidualny Premium</div> <br>
+        <div class="pkg-subtitle pkg-subtitle-sm" data-i18n="pk1_sub">KARIERA • MINDSET • ROZWÓJ OSOBISTY</div>
+        <div class="pkg-subtitle" data-i18n="pk1_sub">Przestrzeń do pracy nad rozwojem osobistym, karierą, mindsetem, relacjami oraz rozwojem zawodowym i biznesowym.</div>
+        <div class="pkg-tagline" data-i18n="pk1_tag">Regularna praca 1:1 nad Twoim celem.</div>
         <div class="pkg-price-lines">
-          <div class="line" data-i18n="pk1_price">Bezpłatna</div>
+          <div class="line" data-i18n="pk1_price1">349 zł / sesja</div>
+          <div class="line" data-i18n="pk1_price2">89 EUR / sesja (Holandia i kraje UE)</div>
         </div>
         <div class="pkg-meta" data-i18n="pk1_meta">60 minut · online lub stacjonarnie</div>
+        <div class="pkg-sublabel" data-i18n="pk1_pkg">Pakiet 4 sesji:</div>
+        <div class="pkg-price-lines">
+          <div class="line" data-i18n="pk1_pkgprice1">1199 zł / pakiet</div>
+          <div class="line" data-i18n="pk1_pkgprice2">299 EUR / pakiet (Holandia i kraje UE)</div>
+        </div>
         <ul class="pkg-features">
-          <li data-i18n="pk1_f1">Rozmowa zapoznawcza 1:1</li>
-          <li data-i18n="pk1_f2">Określenie Twoich celów</li>
-          <li data-i18n="pk1_f3">Plan dalszej współpracy</li>
+          <li data-i18n="pk1_f1">Pełna sesja coachingowa</li>
+          <li data-i18n="pk1_f2">Kariera i zmiana zawodowa</li>
+          <li data-i18n="pk1_f3">Relacje i rozwój osobisty</li>
+          <li data-i18n="pk1_f4">Rozwój biznesowy</li>
+          <li data-i18n="pk1_f5">Wsparcie dla liderów, managerów i przedsiębiorców</li>
+          <li data-i18n="pk1_f6">Rozwój kompetencji przywódczych i zarządczych</li>
+          <li data-i18n="pk1_f7">Indywidualny plan działania</li>
+          <li data-i18n="pk1_f8">Wsparcie między sesjami</li>
+          <li data-i18n="pk1_f9">Podsumowanie po spotkaniu</li>
         </ul>
         <a href="#contact" class="pkg-btn" data-i18n="pkg_choose">Wybieram</a>
       </div>
 
       <div class="pkg-card featured">
-        <div class="pkg-name" data-i18n="pk2_name">Coaching indywidualny Premium</div>
-        <div class="pkg-subtitle" data-i18n="pk2_sub">Przestrzeń do pracy nad rozwojem osobistym, karierą, relacjami oraz rozwojem zawodowym i biznesowym.</div>
-        <div class="pkg-tagline" data-i18n="pk2_tag">Regularna praca 1:1 nad Twoim celem.</div>
+        <div class="pkg-name" data-i18n="pk2_name">Sesja Transformacyjna →</div>
+        <div class="pkg-subtitle pkg-subtitle-sm" data-i18n="pk2_sub">Pierwszy krok do świadomej zmiany.</div>
+        <div class="pkg-subtitle" data-i18n="pk2_sub">Indywidualna sesja poświęcona Twojej aktualnej sytuacji, celom i kierunkowi, w którym chcesz podążać. Wspólnie przyglądamy się obszarom związanym z karierą, mindsetem i rozwojem osobistym, odkrywamy możliwości i określamy pierwsze konkretne kroki do zmiany.</div>
+        <div class="pkg-tagline" data-i18n="pk2_tag">Praca 1:1 nad Twoim celem.</div>
         <div class="pkg-price-lines">
-          <div class="line" data-i18n="pk2_price1">349 zł / sesja</div>
-          <div class="line" data-i18n="pk2_price2">89 EUR / sesja (Holandia i kraje UE)</div>
+          <div class="line" data-i18n="pk2_price1">449 zł / sesja</div>
+          <div class="line" data-i18n="pk2_price2">119 EUR / sesja (Holandia i kraje UE)</div>
         </div>
         <div class="pkg-meta" data-i18n="pk2_meta">60 minut · online lub stacjonarnie</div>
-        <div class="pkg-sublabel" data-i18n="pk2_pkg">Pakiet 4 sesji:</div>
-        <div class="pkg-price-lines">
-          <div class="line" data-i18n="pk2_pkgprice1">1199 zł / sesja</div>
-          <div class="line" data-i18n="pk2_pkgprice2">299 EUR / sesja (Holandia i kraje UE)</div>
-        </div>
+        <div class="pkg-subtitle" data-i18n="pk2_meta">Jeśli zdecydujesz się kontynuować proces w Programie Transformacji Premium, koszt Sesji Transformacyjnej zostanie odliczony od ceny programu.</div>
         <ul class="pkg-features">
-          <li data-i18n="pk2_f1">Pełna sesja coachingowa</li>
-          <li data-i18n="pk2_f2">Kariera i zmiana zawodowa</li>
-          <li data-i18n="pk2_f3">Relacje</li>
-          <li data-i18n="pk2_f4">Rozwój zawodowy i biznesowy</li>
-          <li data-i18n="pk2_f5">Wsparcie dla liderów, managerów i przedsiębiorców</li>
-          <li data-i18n="pk2_f6">Rozwój kompetencji przywódczych i zarządczych</li>
-          <li data-i18n="pk2_f7">Indywidualny plan działania</li>
-          <li data-i18n="pk2_f8">Wsparcie między sesjami</li>
-          <li data-i18n="pk2_f9">Podsumowanie po spotkaniu</li>
+          <li data-i18n="pk2_f1">Określenie Twojej aktualnej sytuacji i celu</li>
+          <li data-i18n="pk2_f2">Kariera i kierunek zawodowy</li>
+          <li data-i18n="pk2_f3">Mindset i rozwój osobisty</li>
+          <li data-i18n="pk2_f4">Odkrycie potencjału i możliwości</li>
+          <li data-i18n="pk2_f5">Określenie obszarów do zmiany</li>
+          <li data-i18n="pk2_f6">Pierwszy plan działania</li>
+          <li data-i18n="pk2_f7">Możliwość kontynuacji w Programie Transformacja Premium</li>
         </ul>
         <a href="#contact" class="pkg-btn" data-i18n="pkg_choose">Wybieram</a>
       </div>
 
-      <div class="pkg-card">
-        <div class="pkg-name" data-i18n="pk3_name">Transformacja Kariery Premium</div>
-        <div class="pkg-subtitle" data-i18n="pk3_sub">Kompleksowy proces wspierający zmianę zawodową i rozwój kariery w zgodzie ze sobą.</div>
+      <div class="pkg-card featured">
+        <div class="pkg-name" data-i18n="pk3_name">Transformacja Kariery & Rozwoju Osobistego Premium</div> <br>
+        <div class="pkg-subtitle" data-i18n="pk3_sub">Kompleksowy, indywidualny program dla osób gotowych na świadomą zmianę w obszarze kariery, mindsetu i rozwoju osobistego w zgodzie ze sobą.</div>
+        <div class="pkg-subtitle" data-i18n="pk3_sub">Proces łączy coaching, pracę nad potencjałem i mindsetem oraz indywidualny plan transformacji, który krok po kroku wspiera Cię w osiąganiu wyznaczonych celów.</div>
         <div class="pkg-tagline" data-i18n="pk3_tag">Kompleksowy program zmiany.</div>
         <div class="pkg-price-lines">
           <div class="line" data-i18n="pk3_price1">3990 zł / program</div>
           <div class="line" data-i18n="pk3_price2">999 EUR / program (Holandia i kraje UE)</div>
         </div>
-        <div class="pkg-meta" data-i18n="pk3_meta">minimum 8 sesji · proces indywidualny</div>
+        <div class="pkg-meta" data-i18n="pk3_meta">60 minut · online lub stacjonarnie</div>
+        <div class="pkg-meta" data-i18n="pk3_meta">Minimum 8 sesji · proces indywidualny</div>
         <ul class="pkg-features">
           <li data-i18n="pk3_f1">Minimum 8 sesji coachingowych</li>
           <li data-i18n="pk3_f2">Odkrycie mocnych stron i potencjału</li>
