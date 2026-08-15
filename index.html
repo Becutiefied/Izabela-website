@@ -102,6 +102,11 @@ nav {
 }
 .lang-btn.active { background: var(--gold); color: var(--white); }
 
+.nav-burger {
+  display: none; background: none; border: none; cursor: pointer;
+  font-size: 1.4rem; line-height: 1; color: var(--grey); padding: 0.2rem;
+}
+
 /* ── HERO ── */
 #hero {
   min-height: 100vh; display: flex; align-items: center;
@@ -273,16 +278,23 @@ nav {
   background: linear-gradient(165deg, var(--beige) 0%, var(--white) 100%);
   border-color: var(--gold);
 }
+.pkg-card.featured .pkg-subtitle,
+.pkg-card.featured .pkg-tagline,
+.pkg-card.featured .pkg-meta,
+.pkg-card.featured .pkg-features li {
+  text-align: justify;
+}
 .pkg-flag {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
   font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
   background: var(--gold); color: var(--white); padding: 0.3rem 1rem; border-radius: 99px;
 }
 .pkg-name { font-family: var(--serif); font-size: 1.7rem; font-weight: 500; color: var(--grey); margin-bottom: 0.25rem; line-height: 1.15; }
-@media (max-width: 900px) {
-  /* ...bestaande regels... */
-  .pkg-subtitle-sm { font-size: 0.72rem; letter-spacing: 0.03em; }
-}.pkg-subtitle { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold); margin-bottom: 1rem; line-height: 1.3; }
+.pkg-subtitle { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold); margin-bottom: 1rem; line-height: 1.3; }
+.pkg-subtitle-sm {
+  font-family: var(--serif); font-style: italic; color: var(--gold);
+  font-size: 0.95rem; letter-spacing: 0.01em; margin-bottom: 0.5rem; line-height: 1.3;
+}
 .pkg-tagline { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; min-height: 2.4em; }
 .pkg-price-lines { margin-bottom: 1.25rem; }
 .pkg-price-lines .line { font-family: var(--serif); font-size: 1.4rem; color: var(--gold); line-height: 1.4; }
@@ -343,13 +355,27 @@ footer {
 ::-webkit-scrollbar-thumb { background: var(--border-deep); border-radius: 4px; }
 
 @media (max-width: 900px) {
-  nav { padding: 0.9rem 1.5rem; }
-  .nav-links { display: none; }
+  nav { padding: 0.9rem 1.5rem; position: relative; }
+  .nav-burger { display: block; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0; margin: 0; padding: 0.5rem 1.5rem 1rem;
+    background: rgba(251,249,245,0.98); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+  .nav-links li:last-child a { border-bottom: none; }
   #hero, .z-section, #packages, #contact, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
   .hero-content, .z-section, .contact-grid { grid-template-columns: 1fr; }
+  .z-section { gap: 3rem; padding-top: 5rem; padding-bottom: 5rem; }
   .z-section.reverse { direction: ltr; }
   .hero-right { order: -1; }
   .hero-photo { max-width: 320px; margin: 0 auto; }
+  .hero-desc { max-width: 100%; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions a { text-align: center; }
   .hero-photo img {
     width: 100%;
     height: auto;
@@ -360,7 +386,14 @@ footer {
     margin-top: auto;
   }
   .steps-grid { grid-template-columns: 1fr 1fr; }
+  #packages { padding: 5rem 1.5rem; }
   .packages-grid { grid-template-columns: 1fr; }
+  .pkg-card { padding: 2rem 1.5rem; }
+  .pkg-subtitle-sm { font-size: 0.62rem; letter-spacing: 0; white-space: nowrap; }
+  #contact { padding: 5rem 1.5rem; }
+  .contact-links { flex-direction: column; align-items: stretch; }
+  .contact-link { justify-content: center; text-align: center; }
+  footer { flex-direction: column; text-align: center; padding: 2.5rem 1.5rem; }
 }
 </style>
 </head>
@@ -379,6 +412,7 @@ footer {
       <button class="lang-btn active" data-lang="pl">PL</button>
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
 </nav>
 
@@ -480,7 +514,7 @@ footer {
 
         <div class="pkg-card">
         <div class="pkg-name" data-i18n="pk1_name">Coaching indywidualny Premium</div> <br>
-        <div class="pkg-subtitle pkg-subtitle-sm" data-i18n="pk1_sub">KARIERA • MINDSET • ROZWÓJ OSOBISTY</div>
+        <div class="pkg-subtitle-sm" data-i18n="pk1_sub_sm">KARIERA • MINDSET • ROZWÓJ OSOBISTY</div>
         <div class="pkg-subtitle" data-i18n="pk1_sub">Przestrzeń do pracy nad rozwojem osobistym, karierą, mindsetem, relacjami oraz rozwojem zawodowym i biznesowym.</div>
         <div class="pkg-tagline" data-i18n="pk1_tag">Regularna praca 1:1 nad Twoim celem.</div>
         <div class="pkg-price-lines">
@@ -509,7 +543,7 @@ footer {
 
       <div class="pkg-card featured">
         <div class="pkg-name" data-i18n="pk2_name">Sesja Transformacyjna →</div>
-        <div class="pkg-subtitle pkg-subtitle-sm" data-i18n="pk2_sub">Pierwszy krok do świadomej zmiany.</div>
+        <div class="pkg-subtitle pkg-subtitle-sm" data-i18n="pk2_sub_sm">Pierwszy krok do świadomej zmiany.</div> <br>
         <div class="pkg-subtitle" data-i18n="pk2_sub">Indywidualna sesja poświęcona Twojej aktualnej sytuacji, celom i kierunkowi, w którym chcesz podążać. Wspólnie przyglądamy się obszarom związanym z karierą, mindsetem i rozwojem osobistym, odkrywamy możliwości i określamy pierwsze konkretne kroki do zmiany.</div>
         <div class="pkg-tagline" data-i18n="pk2_tag">Praca 1:1 nad Twoim celem.</div>
         <div class="pkg-price-lines">
@@ -517,7 +551,7 @@ footer {
           <div class="line" data-i18n="pk2_price2">119 EUR / sesja (Holandia i kraje UE)</div>
         </div>
         <div class="pkg-meta" data-i18n="pk2_meta">60 minut · online lub stacjonarnie</div>
-        <div class="pkg-subtitle" data-i18n="pk2_meta">Jeśli zdecydujesz się kontynuować proces w Programie Transformacji Premium, koszt Sesji Transformacyjnej zostanie odliczony od ceny programu.</div>
+        <div class="pkg-subtitle" data-i18n="pk2_note">Jeśli zdecydujesz się kontynuować proces w Programie Transformacji Premium, koszt Sesji Transformacyjnej zostanie odliczony od ceny programu.</div>
         <ul class="pkg-features">
           <li data-i18n="pk2_f1">Określenie Twojej aktualnej sytuacji i celu</li>
           <li data-i18n="pk2_f2">Kariera i kierunek zawodowy</li>
@@ -533,14 +567,14 @@ footer {
       <div class="pkg-card featured">
         <div class="pkg-name" data-i18n="pk3_name">Transformacja Kariery & Rozwoju Osobistego Premium</div> <br>
         <div class="pkg-subtitle" data-i18n="pk3_sub">Kompleksowy, indywidualny program dla osób gotowych na świadomą zmianę w obszarze kariery, mindsetu i rozwoju osobistego w zgodzie ze sobą.</div>
-        <div class="pkg-subtitle" data-i18n="pk3_sub">Proces łączy coaching, pracę nad potencjałem i mindsetem oraz indywidualny plan transformacji, który krok po kroku wspiera Cię w osiąganiu wyznaczonych celów.</div>
+        <div class="pkg-subtitle" data-i18n="pk3_sub2">Proces łączy coaching, pracę nad potencjałem i mindsetem oraz indywidualny plan transformacji, który krok po kroku wspiera Cię w osiąganiu wyznaczonych celów.</div>
         <div class="pkg-tagline" data-i18n="pk3_tag">Kompleksowy program zmiany.</div>
         <div class="pkg-price-lines">
           <div class="line" data-i18n="pk3_price1">3990 zł / program</div>
           <div class="line" data-i18n="pk3_price2">999 EUR / program (Holandia i kraje UE)</div>
         </div>
         <div class="pkg-meta" data-i18n="pk3_meta">60 minut · online lub stacjonarnie</div>
-        <div class="pkg-meta" data-i18n="pk3_meta">Minimum 8 sesji · proces indywidualny</div>
+        <div class="pkg-meta" data-i18n="pk3_meta2">Minimum 8 sesji · proces indywidualny</div>
         <ul class="pkg-features">
           <li data-i18n="pk3_f1">Minimum 8 sesji coachingowych</li>
           <li data-i18n="pk3_f2">Odkrycie mocnych stron i potencjału</li>
@@ -588,8 +622,8 @@ const i18n = {
     nav_about:"O mnie", nav_transform:"Transformacja", nav_packages:"Pakiety", nav_contact:"Kontakt",
     hero_badge:"Certyfikowany coach | Professional Coach",
     hero_name1:"Izabela", hero_name2:"Konieczna",
-    hero_role:"Coaching transformacyjny& rozwój osobisty",
-    hero_desc:"Pomagam ludziom odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny rozdział swojego życia - krok po kroku, w bezpiecznej przestrzeni.",
+    hero_role:"Coaching transformacyjny & rozwój osobisty",
+    hero_desc:"Pomagam ludziom transformować ich kariery, sposób myślenia i osobisty rozwój — odnaleźć równowagę, odzyskać pewność siebie i świadomie zaprojektować kolejny etap. Krok po kroku, w bezpiecznej i wspierającej przestrzeni, odkrywamy nowe możliwości, porządkujemy to, co naprawdę ważne, i budujemy świadomą drogę do zmiany.",
     hero_cta1:"Zobacz pakiety", hero_cta2:"Umów rozmowę",
     photo_1:"", photo_2:"",
     about_label:"O mnie", about_title:"Z empatią i <em>jasnością</em>",
@@ -606,11 +640,11 @@ const i18n = {
     tr_s3t:"Przemiana", tr_s3d:"Budujemy nowe nawyki, granice i sposób myślenia o sobie.",
     tr_s4t:"Wdrożenie", tr_s4d:"Utrwalamy zmianę w codziennym życiu, krok po kroku.",
     pkg_label:"Oferta", pkg_title:"Pakiety <em>współpracy</em>", pkg_choose:"Wybieram", pkg_popular:"Najpopularniejszy",
-    pk1_name:"Bezpłatna konsultacja wstępna", pk1_sub:"Pierwszy krok do świadomej zmiany.", pk1_tag:"Niezobowiązujące spotkanie zapoznawcze.", pk1_price:"Bezpłatna", pk1_meta:"60 minut · online lub stacjonarnie",
-    pk1_f1:"Rozmowa zapoznawcza 1:1", pk1_f2:"Określenie Twoich celów", pk1_f3:"Plan dalszej współpracy",
-    pk2_name:"Coaching indywidualny Premium", pk2_sub:"Przestrzeń do pracy nad rozwojem osobistym, karierą, relacjami oraz rozwojem zawodowym i biznesowym.", pk2_tag:"Regularna praca 1:1 nad Twoim celem.", pk2_price1:"349 zł / sesja", pk2_price2:"89 EUR / sesja (Holandia i kraje UE)", pk2_meta:"60 minut · online lub stacjonarnie", pk2_pkg:"Pakiet 4 sesji:", pk2_pkgprice1:"1199 zł / sesja", pk2_pkgprice2:"299 EUR / sesja (Holandia i kraje UE)",
-    pk2_f1:"Pełna sesja coachingowa", pk2_f2:"Kariera i zmiana zawodowa", pk2_f3:"Relacje", pk2_f4:"Rozwój zawodowy i biznesowy", pk2_f5:"Wsparcie dla liderów, managerów i przedsiębiorców", pk2_f6:"Rozwój kompetencji przywódczych i zarządczych", pk2_f7:"Indywidualny plan działania", pk2_f8:"Wsparcie między sesjami", pk2_f9:"Podsumowanie po spotkaniu",
-    pk3_name:"Transformacja Kariery Premium", pk3_sub:"Kompleksowy proces wspierający zmianę zawodową i rozwój kariery w zgodzie ze sobą.", pk3_tag:"Kompleksowy program zmiany.", pk3_price1:"3990 zł / program", pk3_price2:"999 EUR / program (Holandia i kraje UE)", pk3_meta:"minimum 8 sesji · proces indywidualny",
+    pk1_name:"Coaching indywidualny Premium", pk1_sub_sm:"KARIERA • MINDSET • ROZWÓJ OSOBISTY", pk1_sub:"Przestrzeń do pracy nad rozwojem osobistym, karierą, mindsetem, relacjami oraz rozwojem zawodowym i biznesowym.", pk1_tag:"Regularna praca 1:1 nad Twoim celem.", pk1_price1:"349 zł / sesja", pk1_price2:"89 EUR / sesja (Holandia i kraje UE)", pk1_meta:"60 minut · online lub stacjonarnie", pk1_pkg:"Pakiet 4 sesji:", pk1_pkgprice1:"1199 zł / pakiet", pk1_pkgprice2:"299 EUR / pakiet (Holandia i kraje UE)",
+    pk1_f1:"Pełna sesja coachingowa", pk1_f2:"Kariera i zmiana zawodowa", pk1_f3:"Relacje i rozwój osobisty", pk1_f4:"Rozwój biznesowy", pk1_f5:"Wsparcie dla liderów, managerów i przedsiębiorców", pk1_f6:"Rozwój kompetencji przywódczych i zarządczych", pk1_f7:"Indywidualny plan działania", pk1_f8:"Wsparcie między sesjami", pk1_f9:"Podsumowanie po spotkaniu",
+    pk2_name:"Sesja Transformacyjna →", pk2_sub_sm:"Pierwszy krok do świadomej zmiany.", pk2_sub:"Indywidualna sesja poświęcona Twojej aktualnej sytuacji, celom i kierunkowi, w którym chcesz podążać. Wspólnie przyglądamy się obszarom związanym z karierą, mindsetem i rozwojem osobistym, odkrywamy możliwości i określamy pierwsze konkretne kroki do zmiany.", pk2_tag:"Praca 1:1 nad Twoim celem.", pk2_price1:"449 zł / sesja", pk2_price2:"119 EUR / sesja (Holandia i kraje UE)", pk2_meta:"60 minut · online lub stacjonarnie", pk2_note:"Jeśli zdecydujesz się kontynuować proces w Programie Transformacji Premium, koszt Sesji Transformacyjnej zostanie odliczony od ceny programu.",
+    pk2_f1:"Określenie Twojej aktualnej sytuacji i celu", pk2_f2:"Kariera i kierunek zawodowy", pk2_f3:"Mindset i rozwój osobisty", pk2_f4:"Odkrycie potencjału i możliwości", pk2_f5:"Określenie obszarów do zmiany", pk2_f6:"Pierwszy plan działania", pk2_f7:"Możliwość kontynuacji w Programie Transformacja Premium",
+    pk3_name:"Transformacja Kariery & Rozwoju Osobistego Premium", pk3_sub:"Kompleksowy, indywidualny program dla osób gotowych na świadomą zmianę w obszarze kariery, mindsetu i rozwoju osobistego w zgodzie ze sobą.", pk3_sub2:"Proces łączy coaching, pracę nad potencjałem i mindsetem oraz indywidualny plan transformacji, który krok po kroku wspiera Cię w osiąganiu wyznaczonych celów.", pk3_tag:"Kompleksowy program zmiany.", pk3_price1:"3990 zł / program", pk3_price2:"999 EUR / program (Holandia i kraje UE)", pk3_meta:"60 minut · online lub stacjonarnie", pk3_meta2:"Minimum 8 sesji · proces indywidualny",
     pk3_f1:"Minimum 8 sesji coachingowych", pk3_f2:"Odkrycie mocnych stron i potencjału", pk3_f3:"Indywidualny plan transformacji", pk3_f4:"Materiały i ćwiczenia", pk3_f5:"Wsparcie w procesie wdrażania zmian", pk3_f6:"Sesja podsumowująca",
     ct_label:"Kontakt", ct_title:"Zróbmy <em>pierwszy krok</em>",
     ct_desc:"Masz pytania lub chcesz umówić rozmowę? Zadzwoń lub napisz do mnie - odpowiem najszybciej, jak to możliwe.",
@@ -622,7 +656,7 @@ const i18n = {
     hero_badge:"Certified Coach | Professional Coach",
     hero_name1:"Izabela", hero_name2:"Konieczna",
     hero_role:"Transformational coaching & personal growth",
-    hero_desc:"I help people find balance, regain confidence, and consciously design the next chapter of their lives - step by step, in a safe and supportive space.",
+    hero_desc:"I help people transform their careers, mindset and personal growth — to find balance, regain confidence, and consciously design the next chapter. Step by step, in a safe and supportive space, we uncover new possibilities, get clear on what truly matters, and build a conscious path toward change.",
     hero_cta1:"View packages", hero_cta2:"Book a call",
     photo_1:"", photo_2:"",
     about_label:"About me", about_title:"With empathy and <em>clarity</em>",
@@ -639,11 +673,11 @@ const i18n = {
     tr_s3t:"Transformation", tr_s3d:"We build new habits, boundaries and a new way of thinking about yourself.",
     tr_s4t:"Integration", tr_s4d:"We anchor the change into your everyday life, step by step.",
     pkg_label:"Offer", pkg_title:"Coaching <em>packages</em>", pkg_choose:"Choose", pkg_popular:"Most popular",
-    pk1_name:"Free intro consultation", pk1_sub:"Your first step toward conscious change.", pk1_tag:"A relaxed, no-obligation first meeting.", pk1_price:"Free", pk1_meta:"60 minutes · online or in person",
-    pk1_f1:"1:1 introductory conversation", pk1_f2:"Defining your goals", pk1_f3:"A plan for working together",
-    pk2_name:"Premium Individual Coaching", pk2_sub:"Space to work on personal growth, career, relationships, and professional and business development.", pk2_tag:"Regular 1:1 work toward your goal.", pk2_price1:"349 zł / session", pk2_price2:"89 EUR / session (Netherlands & EU)", pk2_meta:"60 minutes · online or in person", pk2_pkg:"4-session package:", pk2_pkgprice1:"1199 zł / session", pk2_pkgprice2:"299 EUR / session (Netherlands & EU)",
-    pk2_f1:"Full coaching session", pk2_f2:"Career and professional change", pk2_f3:"Relationships", pk2_f4:"Professional and business growth", pk2_f5:"Support for leaders, managers and entrepreneurs", pk2_f6:"Developing leadership and management skills", pk2_f7:"Individual action plan", pk2_f8:"Support between sessions", pk2_f9:"Summary after each meeting",
-    pk3_name:"Premium Career Transformation", pk3_sub:"A comprehensive process supporting professional change and career growth in alignment with yourself.", pk3_tag:"A complete change program.", pk3_price1:"3990 zł / program", pk3_price2:"999 EUR / program (Netherlands & EU)", pk3_meta:"minimum 8 sessions · individual process",
+    pk1_name:"Premium Individual Coaching", pk1_sub_sm:"CAREER • MINDSET • PERSONAL GROWTH", pk1_sub:"Space to work on personal growth, career, mindset, relationships, and professional and business development.", pk1_tag:"Regular 1:1 work toward your goal.", pk1_price1:"349 zł / session", pk1_price2:"89 EUR / session (Netherlands & EU)", pk1_meta:"60 minutes · online or in person", pk1_pkg:"4-session package:", pk1_pkgprice1:"1199 zł / package", pk1_pkgprice2:"299 EUR / package (Netherlands & EU)",
+    pk1_f1:"Full coaching session", pk1_f2:"Career and professional change", pk1_f3:"Relationships and personal growth", pk1_f4:"Business development", pk1_f5:"Support for leaders, managers and entrepreneurs", pk1_f6:"Developing leadership and management skills", pk1_f7:"Individual action plan", pk1_f8:"Support between sessions", pk1_f9:"Summary after each meeting",
+    pk2_name:"Transformational Session →", pk2_sub_sm:"Your first step toward conscious change.", pk2_sub:"An individual session focused on your current situation, your goals, and the direction you want to move in. Together we look at areas related to career, mindset and personal growth, uncover possibilities, and define the first concrete steps toward change.", pk2_tag:"1:1 work toward your goal.", pk2_price1:"449 zł / session", pk2_price2:"119 EUR / session (Netherlands & EU)", pk2_meta:"60 minutes · online or in person", pk2_note:"If you decide to continue the process in the Premium Transformation Programme, the cost of the Transformational Session will be deducted from the programme price.",
+    pk2_f1:"Defining your current situation and goal", pk2_f2:"Career and professional direction", pk2_f3:"Mindset and personal growth", pk2_f4:"Discovering potential and possibilities", pk2_f5:"Identifying areas for change", pk2_f6:"First action plan", pk2_f7:"Option to continue in the Premium Transformation Programme",
+    pk3_name:"Premium Career & Personal Growth Transformation", pk3_sub:"A comprehensive, individual programme for those ready for a conscious change in career, mindset and personal growth - in alignment with themselves.", pk3_sub2:"The process combines coaching, work on potential and mindset, and an individual transformation plan that supports you step by step in reaching your goals.", pk3_tag:"A complete change programme.", pk3_price1:"3990 zł / program", pk3_price2:"999 EUR / program (Netherlands & EU)", pk3_meta:"60 minutes · online or in person", pk3_meta2:"Minimum 8 sessions · individual process",
     pk3_f1:"Minimum 8 coaching sessions", pk3_f2:"Discovering strengths and potential", pk3_f3:"Personalised transformation plan", pk3_f4:"Materials and exercises", pk3_f5:"Support in implementing change", pk3_f6:"Closing session",
     ct_label:"Contact", ct_title:"Let's take the <em>first step</em>",
     ct_desc:"Have a question or want to book a call? Call or message me - I'll get back to you as soon as I can.",
@@ -668,6 +702,18 @@ function setLang(lang) {
 }
 document.querySelectorAll('.lang-btn').forEach(btn =>
   btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+
+// mobile nav toggle
+const navBurger = document.getElementById('navBurger');
+const navLinks = document.querySelector('.nav-links');
+navBurger.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navBurger.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  navBurger.setAttribute('aria-expanded', 'false');
+}));
 
 // Pas de orphan-fix toe op de initiële statische HTML
 document.querySelectorAll('[data-i18n]').forEach(el => {
