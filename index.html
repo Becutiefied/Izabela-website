@@ -283,6 +283,8 @@ nav {
 .pkg-card.featured .pkg-meta,
 .pkg-card.featured .pkg-features li {
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 .pkg-flag {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
@@ -374,6 +376,14 @@ footer {
   .hero-right { order: -1; }
   .hero-photo { max-width: 320px; margin: 0 auto; }
   .hero-desc { max-width: 100%; }
+  /* justify geeft lelijke witruimtegaten in smalle, single-column mobiele layout — val terug op links */
+  .hero-desc, #about p, .transform-intro, .contact-desc,
+  .pkg-card.featured .pkg-subtitle,
+  .pkg-card.featured .pkg-tagline,
+  .pkg-card.featured .pkg-meta,
+  .pkg-card.featured .pkg-features li {
+    text-align: left;
+  }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions a { text-align: center; }
   .hero-photo img {
