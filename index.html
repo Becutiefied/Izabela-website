@@ -8,9 +8,11 @@
 <!-- Open Graph (voor delen op LinkedIn, WhatsApp, Facebook) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Izabela Konieczna | Professional Coach | Career, Executive & Life Transformation">
+<meta property="og:description" content="Certyfikowany coach . Coaching transformacyjny, rozwój osobisty i zmiana kariery — online i stacjonarnie w Polsce i Holandii.">
 <meta property="og:image" content="https://raw.githubusercontent.com/Becutiefied/Izabela-website/main/images/og-image.jpg">
 <meta property="og:url" content="https://izabelakoniecznacoaching.com/">
 <meta property="og:locale" content="pl_PL">
+<meta property="og:locale:alternate" content="en_US">
 <link rel="canonical" href="https://izabelakoniecznacoaching.com/">
 
 <!-- Twitter/X kaart -->
@@ -376,14 +378,18 @@ footer {
   .z-section.reverse { direction: ltr; }
   .hero-right { order: -1; }
   .hero-photo { max-width: 320px; margin: 0 auto; }
+  .hero-role:last-child { padding-left: 0; }
   .hero-desc { max-width: 100%; }
   /* justify geeft lelijke witruimtegaten in smalle, single-column mobiele layout — val terug op links */
-  .hero-desc, #about p, .transform-intro, .contact-desc,
+  .contact-desc,
   .pkg-card.featured .pkg-subtitle,
   .pkg-card.featured .pkg-tagline,
   .pkg-card.featured .pkg-meta,
   .pkg-card.featured .pkg-features li {
     text-align: left;
+  }
+  .step-desc {
+    text-align: justify;
   }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions a { text-align: center; }
